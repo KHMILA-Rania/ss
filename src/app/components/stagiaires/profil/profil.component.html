@@ -1,0 +1,105 @@
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-4 mb-sm-5">
+        <div class="card card-style1 border-0">
+          <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+            <div class="row align-items-center">
+              <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="...">
+              </div>
+              <div class="col-lg-6 px-xl-10">
+                <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                  <h3 class="h2 text-white mb-0">John mark Doe Kyzer</h3>
+                  <span class="text-primary">Coach</span>
+                </div>
+                <ul class="list-unstyled mb-1-9">
+                  <li class="mb-2 mb-xl-3 display-28"><span
+                      class="display-26 text-secondary me-2 font-weight-600">adresse:</span> Coach</li>
+                  <li class="mb-2 mb-xl-3 display-28"><span
+                      class="display-26 text-secondary me-2 font-weight-600">sexe:</span> 10 Years</li>
+                  <li class="mb-2 mb-xl-3 display-28"><span
+                      class="display-26 text-secondary me-2 font-weight-600">date_naissance:</span> 10 Years</li>
+                  <li class="mb-2 mb-xl-3 display-28"><span
+                      class="display-26 text-secondary me-2 font-weight-600">cin:</span> 10 Years</li>
+                  <li class="mb-2 mb-xl-3 display-28"><span
+                      class="display-26 text-secondary me-2 font-weight-600">Email:</span> edith@mail.com</li>
+                  <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Telephone:</span>
+                    507 - 541 - 4567</li>
+                  <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">CV:</span> 507 -
+                    541 - 4567</li>
+                  <li class="mb-2 mb-xl-3 display-28"><span
+                      class="display-26 text-secondary me-2 font-weight-600">Website:</span> www.example.com</li>
+
+                </ul>
+                <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                  <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                  <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                  <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                  <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <button pButton pRipple type="button" label="Modifier" class="p-button-outlined p-button-info col-3"></button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="card">
+  <span class="text-900 text-xl font-bold mb-4 block">Create User</span>
+  <div class="grid">
+      <div class="col-12 lg:col-2">
+          <div class="text-900 font-medium text-xl mb-3">Profile</div>
+          <p class="m-0 p-0 text-600 line-height-3 mr-3">Odio euismod lacinia at quis risus sed vulputate odio.</p>
+      </div>
+      <div class="col-12 lg:col-10">
+          <div class="grid formgrid p-fluid">
+              <div class="field mb-4 col-12">
+                  <label for="nickname" class="font-medium text-900">Nickname</label>
+                  <input id="nickname" type="text" pInputText>
+              </div>
+              <div class="field mb-4 col-12">
+                  <label for="avatar" class="font-medium text-900">Avatar</label>
+                  <p-fileUpload mode="basic" name="avatar" url="./upload.php" accept="image/*" [maxFileSize]="1000000" styleClass="p-button-outlined p-button-plain" chooseLabel="Upload Image"></p-fileUpload>
+              </div>
+              <div class="field mb-4 col-12">
+                  <label for="bio" class="font-medium text-900">Bio</label>
+                  <textarea id="bio" type="text" pInputTextarea rows="5" [autoResize]="true"></textarea>
+              </div>
+              <div class="field mb-4 col-12 md:col-6">
+                  <label for="email" class="font-medium text-900">Email</label>
+                  <input id="email" type="text" pInputText>
+              </div>
+    
+              <div class="field mb-4 col-12 md:col-6">
+                  <label for="city" class="font-medium text-900">City</label>
+                  <input id="city" type="text" pInputText>
+              </div>
+              <div class="field mb-4 col-12 md:col-6">
+                  <label for="city" class="font-medium text-900">City</label>
+                  <input id="city" type="text" pInputText>
+              </div>
+              <div class="field mb-4 col-12 md:col-6">
+                  <label for="state" class="font-medium text-900">State</label>
+                  <input id="state" type="text" pInputText>
+              </div>
+              <div class="field mb-4 col-12">
+                  <label for="website" class="font-medium text-900">Website</label>
+                  <div class="p-inputgroup">
+                      <span class="p-inputgroup-addon">www</span>
+                      <input id="website" type="text" pInputText>      
+                  </div>
+              </div>
+              <div class="col-12">
+                  <button pButton pRipple label="Create User" class="w-auto mt-3"></button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

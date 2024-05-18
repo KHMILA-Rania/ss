@@ -1,0 +1,45 @@
+
+body {
+  background-image: url('https://www.digischool.fr/articles/_next/image/?url=https%3A%2F%2Fcms.digischool.fr%2Fwp-content%2Fuploads%2F2020%2F08%2Ftrouver-un-stage-8-etapes.jpeg&w=1080&q=75');
+  background-repeat: no-repeat;
+  background-size: cover;
+  .container1 {
+    position: relative;
+
+    height: 670px; 
+    background-size: cover;
+    background-position: center;
+    }
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(90, 29, 242); /* Couleur du texte */
+}
+
+.content h1 {
+    margin-top: 0;
+}
+
+.content p {
+    margin-top: 10px;
+}
+
+.content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.content button:hover {
+    background-color: #0056b3; /* Couleur de fond du bouton au survol */
+}
+

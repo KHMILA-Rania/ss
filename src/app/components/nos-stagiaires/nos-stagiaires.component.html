@@ -1,0 +1,35 @@
+ <div class="card">
+    <p-table [value]="data" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                Liste des Sociétés
+                <!-- <p-button icon="pi pi-refresh"></p-button> -->
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th scope="col">nom Complete</th>
+                <th scope="col">domaine</th>
+                <th scope="col">email</th>
+                <th scope="col">telephone</th>
+                <th scope="col">adresse</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item of data>
+            <tr>
+                <td>{{item.nom}}</td>
+                <td>{{item.domaine}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.telephone}}</td>
+                <td>{{item.ville}}</td>
+                <td>{{item.adress}}</td>
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                In total there are {{data? data.length : 0 }} stagiaire(s).
+            </div>
+        </ng-template>
+    </p-table>
+</div>
