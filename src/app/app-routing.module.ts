@@ -18,19 +18,17 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
-
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
   {
     path: 'dashboard',
     component: DashboardComponent,
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
-  // { path: 'dashboardSociete',component:DashboardSocieteComponent , loadChildren: () => import('./dashboard-societe/dashboard-societe.module').then(m => m.DashboardSocieteModule) }
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

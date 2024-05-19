@@ -13,10 +13,8 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { AvatarModule } from 'primeng/avatar';
 import { DropdownModule } from 'primeng/dropdown';
 import { DataViewModule } from 'primeng/dataview';
-import { ProfilComponent } from '../components/stagiaires/profil/profil.component';
 import { NosStagiairesComponent } from '../components/nos-stagiaires/nos-stagiaires.component';
 import { NosEntreprisesComponent } from '../components/nos-entreprises/nos-entreprises.component';
-import { MesCandidaturesComponent } from '../components/stagiaires/mes-candidatures/mes-candidatures.component';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { PanelModule } from 'primeng/panel';
 import { MenuModule } from 'primeng/menu';
@@ -24,11 +22,8 @@ import { PaginatorModule } from 'primeng/paginator';
 import { RouterModule } from '@angular/router';
 import { TagModule } from 'primeng/tag';
 import { SplitterModule } from 'primeng/splitter';
-import { MesOffresComponent } from '../components/entreprise/mes-offres/mes-offres.component';
-import { CVComponent } from '../components/stagiaires/cv/cv.component';
 import { FeedbackComponent } from '../components/feedback/feedback.component';
 import { FooterComponent } from '../components/commun/footer/footer.component';
-import { ProfilSocieteComponent } from '../components/entreprise/profil-societe/profil-societe.component';
 import { PrimeNgModule } from '../modules/shared/shared.module';
 @NgModule({
   declarations: [
@@ -36,15 +31,10 @@ import { PrimeNgModule } from '../modules/shared/shared.module';
     HomeComponent,
     NavBarComponent,
     SideBarComponent,
-    ProfilComponent,
     NosStagiairesComponent,
     NosEntreprisesComponent,
-    MesCandidaturesComponent,
-    MesOffresComponent,
-    CVComponent,
     FeedbackComponent,
     FooterComponent,
-    ProfilSocieteComponent,
   ],
   imports: [
     CommonModule,
