@@ -22,8 +22,22 @@ export class AuthService {
           const helper = new JwtHelperService();
           const decodedToken = helper.decodeToken(res?.token);
           console.log(decodedToken);
-          this.router.navigateByUrl('/dashboard');
           alert('merci de votre connexion');
+          switch (decodedToken?.role) {
+            case 'societe': {
+              this.router.navigateByUrl('/dashboard/company');
+              break;
+            }
+            case 'stagiaire': {
+              this.router.navigateByUrl('/dashboard/student');
+              break;
+            }
+            default: {
+              this.router.navigateByUrl('/');
+              break;
+            }
+          }
+          
         } else {
           alert('Une erreur est survenue lors de la connexion');
         }
@@ -42,7 +56,7 @@ export class AuthService {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('idUser');
     sessionStorage.removeItem('expires_at');
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/auth');
   }
 
   public isLoggedIn() {

@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MesOffresComponent } from 'src/app/components/entreprise/mes-offres/mes-offres.component';
 import { ProfilSocieteComponent } from 'src/app/components/entreprise/profil-societe/profil-societe.component';
-
+import { AcceuilComponent } from 'src/app/pages/acceuilCompany/acceuil.component';
+import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-candidatures/liste-candidatures.component';
 const routes: Routes = [
   {
-    path: 'mes-offres',
-    component: MesOffresComponent,
+    path: '',
+    component: AcceuilComponent,
   },
+
   {
     path: 'profil-societe',
     component: ProfilSocieteComponent,
@@ -17,6 +19,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('../offres/offres.module').then((m) => m.OffresModule),
   },
+  {
+    path: 'liste-candidatures',
+    component: ListeCandidaturesComponent,
+  },
+  {
+    path: 'mes-offres',
+    component: MesOffresComponent,
+  }
 ];
 
 @NgModule({

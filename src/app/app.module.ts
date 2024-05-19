@@ -8,15 +8,11 @@ import {HttpClientModule} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SplitterModule } from 'primeng/splitter';
 import { PanelMenuModule } from 'primeng/panelmenu';
-
 import {StyleClassModule} from 'primeng/styleclass';
 import { PrimeNgModule } from './modules/shared/shared.module';
-import { CalendrierComponent } from './components/calendrier/calendrier.component';
-import { FullCalendarModule } from '@fullcalendar/angular';
 import { MessageService } from 'primeng/api';
-import { ListeCandidaturesComponent } from './components/entreprise/liste-candidatures/liste-candidatures.component';
 @NgModule({
-  declarations: [AppComponent, CalendrierComponent, ListeCandidaturesComponent],
+  declarations: [AppComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,7 +25,7 @@ import { ListeCandidaturesComponent } from './components/entreprise/liste-candid
     SplitterModule,
     StyleClassModule,
     PrimeNgModule,
-    FullCalendarModule,
+    
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

@@ -29,30 +29,30 @@ export class SideBarComponent implements OnInit {
         label: 'home',
         icon: 'pi pi-fw pi-home',
         command: () => {
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/dashboard/company');
         },
       },
       {
         label: 'mes Offres',
         icon: 'pi pi-fw pi-pencil',
         command: () => {
-          this.router.navigateByUrl('/dashboard/offres/mes-offres');
+          this.router.navigateByUrl('/dashboard/company/mes-offres');
         },
         items: [
           {
             label: 'New',
             icon: 'pi pi-fw pi-user-plus',
             command: () => {
-              this.router.navigateByUrl('/dashboard/publier');
+              this.router.navigateByUrl('/dashboard/offres/add');
             },
           },
         ],
       },
       {
-        label: 'nos Offres',
+        label: 'Liste des candidatures',
         icon: 'pi pi-fw pi-user',
         command: () => {
-          this.router.navigateByUrl('/dashboard/nos-offres');
+          this.router.navigateByUrl('/dashboard/company/liste-candidatures');
         },
       },
       {
@@ -65,16 +65,8 @@ export class SideBarComponent implements OnInit {
       {
         label : 'Profil',
         icon : 'pi pi-fw pi-id-card',
-        command : ()=>{this.router.navigateByUrl( '/dashboard/profil-societe')
+        command : ()=>{this.router.navigateByUrl( '/dashboard/company/profil-societe')
         } ,
-        items:[
-          {
-            label:'Modifier Profil',
-            icon : 'pi pi-fw pi-cog', 
-            command :()=>{this.router.navigateByUrl('/dashboard/modifier-profil-societe')}
-          },
-
-        ]
       }
     ];
     this.items1 = [
@@ -82,7 +74,7 @@ export class SideBarComponent implements OnInit {
         label: 'home',
         icon: 'pi pi-fw pi-home',
         command: () => {
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/dashboard/student');
         },
       },
       {
@@ -96,7 +88,7 @@ export class SideBarComponent implements OnInit {
         label: 'mes candidatures',
         icon: 'pi pi-fw pi-file',
         command: () => {
-          this.router.navigateByUrl('/dashboard/mes-candidatures');
+          this.router.navigateByUrl('/dashboard/student/mes-candidatures');
         },
       },
       {
@@ -110,7 +102,7 @@ export class SideBarComponent implements OnInit {
         label: 'stages sauvegardés',
         icon: 'pi pi-fw pi-bookmark',
         command: () => {
-          this.router.navigateByUrl('/dashboard/stageSauvgardes');
+          this.router.navigateByUrl('/dashboard/student/stageSauvgardes');
         },
       },
       {
@@ -124,7 +116,7 @@ export class SideBarComponent implements OnInit {
         label: 'Profil',
         icon: 'pi pi-fw pi-id-card',
         command: () => {
-          this.router.navigateByUrl('/dashboard/profil');
+          this.router.navigateByUrl('/dashboard/student/profil');
         },
      
       },

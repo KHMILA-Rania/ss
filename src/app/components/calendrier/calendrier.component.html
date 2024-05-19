@@ -12,28 +12,28 @@
 
                 <div class="grid">
                     <div class="col-6">
-                        <div class="text-900 font-semibold mb-2">Start</div>
+                        <div class="text-900 font-semibold mb-2">Debut</div>
                         <p class="flex align-items-center m-0">
                             <i class="pi pi-fw pi-clock text-700 mr-2"></i>
                             <span>{{changedEvent.start.toISOString().slice(0,10)}}</span>
                         </p>
                     </div>
                     <div class="col-6">
-                        <div class="text-900 font-semibold mb-2">End</div>
+                        <div class="text-900 font-semibold mb-2">Fin</div>
                         <p class="flex align-items-center m-0">
                             <i class="pi pi-fw pi-clock text-700 mr-2"></i>
                             <span>{{changedEvent.end.toISOString().slice(0,10)}}</span>
                         </p>
                     </div>
                     <div class="col-12">
-                        <div class="text-900 font-semibold mb-2">Location</div>
+                        <div class="text-900 font-semibold mb-2">Lieu</div>
                         <p class="flex align-items-center m-0">
                             <i class="pi pi-fw pi-clock text-700 mr-2"></i>
                             <span>{{changedEvent.location}}</span>
                         </p>
                     </div>
                     <div class="col-12">
-                        <div class="text-900 font-semibold mb-2">Color</div>
+                        <div class="text-900 font-semibold mb-2">Coleur</div>
                         <p class="flex align-items-center m-0">
                             <span class="inline-flex flex-shrink-0 w-1rem h-1rem mr-2 border-circle" [style.backgroundColor]="changedEvent.tag.color"></span>
                             <span>{{changedEvent.tag.name}}</span>
@@ -44,14 +44,14 @@
             <div *ngIf="view !== 'display'">
                 <div class="grid p-fluid formgrid">
                     <div class="col-12 md:col-6 field">
-                        <label for="title" class="text-900 font-semibold">Title</label>
+                        <label for="title" class="text-900 font-semibold">Titre</label>
                         <span class="p-input-icon-left">
                             <i class="pi pi-pencil"></i>
                             <input id="title" type="text" pInputText placeholder="Title" [(ngModel)]="changedEvent.title" />
                         </span>
                     </div>
                     <div class="col-12 md:col-6 field">
-                        <label for="location" class="text-900 font-semibold">Location</label>
+                        <label for="location" class="text-900 font-semibold">Lieu</label>
                         <span class="p-input-icon-left">
                             <i class="pi pi-map-marker"></i>
                             <input id="location" type="text" pInputText placeholder="Location" [(ngModel)]="changedEvent.location" />
@@ -63,15 +63,15 @@
                     </div>
 
                     <div class="col-12 md:col-6 field">
-                        <label for="start" class="text-900 font-semibold">Start Date</label>
+                        <label for="start" class="text-900 font-semibold"> Date Debut </label>
                         <p-calendar [appendTo]="dd" dateFormat="mm-dd-yy" [maxDate]="changedEvent.end" [showTime]="true" [required]="true" inputId="start" [(ngModel)]="changedEvent.start"></p-calendar>
                     </div>
                     <div class="col-12 md:col-6 field">
-                        <label for="start" class="text-900 font-semibold">End Date</label>
+                        <label for="start" class="text-900 font-semibold"> Date Fin</label>
                         <p-calendar [appendTo]="dd" dateFormat="mm-dd-yy" [minDate]="changedEvent.start" [showTime]="true" [required]="true" inputId="end" [(ngModel)]="changedEvent.end"></p-calendar>
                     </div>
                     <div class="col-12 field">
-                        <label for="company-color" class="text-900 font-semibold">Color</label>
+                        <label for="company-color" class="text-900 font-semibold">Coleur</label>
                         <p-dropdown inputId="company-color" [appendTo]="dd" [options]="tags" [(ngModel)]="changedEvent.tag" optionLabel="name">
                             <ng-template pTemplate="selectedItem">
                                 <div *ngIf="changedEvent.tag" class="flex align-items-center">
@@ -93,7 +93,7 @@
 
         <ng-template pTemplate="footer">
             <button pButton *ngIf="view === 'display'" label="Edit" icon="pi pi-pencil" (click)="onEditClick()"></button>
-            <button pButton *ngIf="view === 'new' || view === 'edit'" label="Save" icon="pi pi-check" (click)="handleSave()" [disabled]="!changedEvent.start || !changedEvent.end"></button>
+            <button pButton *ngIf="view === 'new' || view === 'edit'" label="Enregistrer" icon="pi pi-check" (click)="handleSave()" [disabled]="!changedEvent.start || !changedEvent.end"></button>
         </ng-template>
     </p-dialog>
 </div>

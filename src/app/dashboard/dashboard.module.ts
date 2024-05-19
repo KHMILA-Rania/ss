@@ -25,6 +25,8 @@ import { SplitterModule } from 'primeng/splitter';
 import { FeedbackComponent } from '../components/feedback/feedback.component';
 import { FooterComponent } from '../components/commun/footer/footer.component';
 import { PrimeNgModule } from '../modules/shared/shared.module';
+import { CalendrierComponent } from '../components/calendrier/calendrier.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -35,6 +37,7 @@ import { PrimeNgModule } from '../modules/shared/shared.module';
     NosEntreprisesComponent,
     FeedbackComponent,
     FooterComponent,
+    CalendrierComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +58,8 @@ import { PrimeNgModule } from '../modules/shared/shared.module';
     TableModule,
     TagModule,
     SplitterModule,
-    PrimeNgModule
+    PrimeNgModule,
+    FullCalendarModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

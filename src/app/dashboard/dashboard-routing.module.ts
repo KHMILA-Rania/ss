@@ -3,12 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { NosEntreprisesComponent } from '../components/nos-entreprises/nos-entreprises.component';
 import { NosStagiairesComponent } from '../components/nos-stagiaires/nos-stagiaires.component';
 import { FeedbackComponent } from '../components/feedback/feedback.component';
+import { CalendrierComponent } from '../components/calendrier/calendrier.component';
 
 
 const routes: Routes = [
-  
-  
-
   {
     path: 'nos-societes',
     component: NosEntreprisesComponent,
@@ -17,8 +15,7 @@ const routes: Routes = [
     path: 'nos-stagiaires',
     component: NosStagiairesComponent,
   },
-  
-  
+
   {
     path: 'feedback',
     component: FeedbackComponent,
@@ -37,6 +34,10 @@ const routes: Routes = [
     path: 'company',
     loadChildren: () =>
       import('../modules/company/company.module').then((m) => m.CompanyModule),
+  },
+  {
+    path: 'evenements',
+    component: CalendrierComponent
   },
 ];
 

@@ -182,9 +182,9 @@ export class AcceuilComponent {
     ) { }
 
     ngOnInit() {
-        //   this.OffreService.getAllOffre().subscribe((data:any) => {
-        //     this.offres
-        //   })
+          this.OffreService.getAllOffre().subscribe((data:any) => {
+            this.offres
+          })
     }
 
     update() {

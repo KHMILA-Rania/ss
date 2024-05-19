@@ -1,9 +1,9 @@
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
-    <form class="row g-3" [formGroup] = "addForm" method="post">
+    <form class="row g-3" [formGroup] = "profileForm" method="post">
    <div class="row"> 
     <div class="col-md-4">
       <label class="form-label">nom</label>
-      <input type="text" class="form-control" placeholder="nom" formControlName="nom">
+      <input type="text" class="form-control" placeholder="nom" [value]="currentUser?.nom" formControlName="nom">
     </div>
     <div class="col-md-4">
         <label class="form-label">N° matricule fiscale</label>
