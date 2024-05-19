@@ -9,22 +9,26 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./profil.component.scss'],
 })
 export class ProfilComponent implements OnInit {
-  addForm: FormGroup;
+  // addForm: FormGroup;
   addFormP: FormGroup;
+  profileForm: FormGroup;
   data: any;
-  idUser : any ;
-  curretnUserId:any;
+  idUser: any;
+  curretnUserId: any;
+  currentUser: any;
   role = sessionStorage.getItem('role');
-  
+  profileDetail: any;
   constructor(
     private profilS: StagiaireService,
     private authservice: AuthService,
-    private userService : UserService
+    private userService: UserService
   ) {
     this.curretnUserId = this.authservice.getUserId();
-    // this.idUser = sessionStorage.getItem('userId');
+    this.userService.getOne(this.curretnUserId).subscribe((res: any) => {
+      this.currentUser = res.data;
+    });
     this.idUser = this.authservice.getUserId();
-    this.addForm = new FormGroup({
+    this.profileForm = new FormGroup({
       nom: new FormControl(''),
       prenom: new FormControl(''),
       email: new FormControl(''),
@@ -46,13 +50,18 @@ export class ProfilComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.getById(this.curretnUserId);
-    
+    console.log(this.curretnUserId);;
+    console.log(this.currentUser);
+    this.userService.getOne(this.curretnUserId).subscribe((res: any) => {
+      this.profileDetail = res.data;
+      console.log(this.profileDetail);
+      this.profileForm.patchValue(this.profileDetail);
+    });
   }
 
   enregistrer() {
-    let data = this.addForm.getRawValue();
-    if (this.addForm.valid) {
+    let data = this.profileForm.getRawValue();
+    if (this.profileForm.valid) {
       this.profilS.createStagiare(data).subscribe((res) => {
         alert('Le profil a été enregistré avec succès');
         console.log(data);
@@ -66,8 +75,10 @@ export class ProfilComponent implements OnInit {
     this.profilS.getAll().subscribe((res) => console.log(res));
   }
   getById(id: number) {
-    this.userService.getOne(id).subscribe((data) => {
-      this.data = Object.values(data);
+    this.userService.getOne(id).subscribe((res: any) => {
+      this.profileDetail = res.data;
+      console.log(this.profileDetail);
+      this.profileForm.patchValue(this.profileDetail);
     });
   }
 
@@ -86,6 +97,7 @@ export class ProfilComponent implements OnInit {
   }
 
   updateProfil(id: number, data: any) {
+    
     this.profilS.updateStagiaire(id, data).subscribe(
       (res) => {
         console.log(res);
@@ -103,4 +115,3 @@ export class ProfilComponent implements OnInit {
     });
   }
 }
-

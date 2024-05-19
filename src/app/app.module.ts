@@ -14,8 +14,9 @@ import { PrimeNgModule } from './modules/shared/shared.module';
 import { CalendrierComponent } from './components/calendrier/calendrier.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { MessageService } from 'primeng/api';
+import { ListeCandidaturesComponent } from './components/entreprise/liste-candidatures/liste-candidatures.component';
 @NgModule({
-  declarations: [AppComponent, AcceuilComponent, CalendrierComponent],
+  declarations: [AppComponent, AcceuilComponent, CalendrierComponent, ListeCandidaturesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

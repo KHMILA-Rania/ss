@@ -1,17 +1,20 @@
 <!-- <div class="card">
-    <p-table [value]="data" [tableStyle]="{'min-width': '50rem'}">
-        <ng-template pTemplate="caption">
-            <div class="flex align-items-center justify-content-between">
-                Mes-postulations
-                <p-button icon="pi pi-refresh"></p-button>
-            </div>
-        </ng-template>
+    
+</div> -->
+
+<div class="grid">
+	<div class="col-12">
+		<div class="card">
+      <h5>Mes Candidatures</h5>
+      <p-table [value]="data" [tableStyle]="{'min-width': '50rem'}">
+
         <ng-template pTemplate="header">
             <tr>
                 <th>nom</th>
                 <th>email</th>
                 <th>datePostulation</th>
                 <th>status</th>
+                <th> action </th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-item>
@@ -20,6 +23,9 @@
                 <td>{{item.email}}</td>
                 <td>{{item.datePostulation}}</td>
                 <td><p-tag [value]="item?.status" [severity]="getSeverity(item?.status)">{{item?.status}}</p-tag></td>
+                <td>
+                  <button pButton pRipple type="button" label="Supprimer" class="p-button-raised p-button-danger"></button>
+                </td>
             </tr>
         </ng-template>
         <ng-template pTemplate="summary">
@@ -28,20 +34,17 @@
             </div>
         </ng-template>
     </p-table>
-</div> -->
-
-<div class="grid">
-	<div class="col-12">
-		<div class="card">
-      <h5>Mes Candidatures</h5>
-      <p-dataView #dv [value]="data" [paginator]="true" [rows]="9" filterBy="name" [sortOrder]="5" layout="grid">
+    </div>
+  </div>
+</div>
+      <!-- <p-dataView #dv [value]="data" [paginator]="true" [rows]="9" filterBy="name" [sortOrder]="5" layout="grid">
         <ng-template pTemplate="header">
           <div class="flex flex-column md:flex-row md:justify-content-between gap-2">
 
             <span class="p-input-icon-left">
               <i class="pi pi-search"></i>
               <input type="search" pInputText placeholder="Search by Name">
-              <!-- (input)="onFilter(dv, $event)" -->
+              
             </span>
           </div>
         </ng-template>
@@ -49,8 +52,7 @@
         <ng-template let-offre pTemplate="listItem">
           <div class="col-12">
             <div class="flex flex-column md:flex-row align-items-center p-3 w-full">
-              <!-- <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.name" -->
-              <!-- class="my-4 md:my-0 w-9 md:w-10rem shadow-2 mr-5" /> -->
+            
               <div class="flex-1 flex flex-column align-items-center text-center md:text-left">
                 <div class="font-bold text-2xl">{{offre?.nom}}</div>
                 <div class="mb-2">{{offre.email}}</div>
@@ -68,7 +70,4 @@
           </div>
         </ng-template>
 
-      </p-dataView>
-    </div>
-  </div>
-</div>
+      </p-dataView> -->
