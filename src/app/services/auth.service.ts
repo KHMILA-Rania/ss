@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as  moment from 'moment';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root',
 })
@@ -22,7 +23,11 @@ export class AuthService {
           const helper = new JwtHelperService();
           const decodedToken = helper.decodeToken(res?.token);
           console.log(decodedToken);
-          alert('merci de votre connexion');
+          Swal.fire({
+            title: 'succes!',
+            text: 'merci pour votre connexion',
+            icon: 'success',
+          });
           switch (decodedToken?.role) {
             case 'societe': {
               this.router.navigateByUrl('/dashboard/company');
@@ -32,6 +37,10 @@ export class AuthService {
               this.router.navigateByUrl('/dashboard/student');
               break;
             }
+            case 'admin': {
+              this.router.navigateByUrl('/dashboard/admin');
+              break;
+            }
             default: {
               this.router.navigateByUrl('/');
               break;
@@ -39,6 +48,7 @@ export class AuthService {
           }
           
         } else {
+          
           alert('Une erreur est survenue lors de la connexion');
         }
       },
@@ -88,7 +98,7 @@ export class AuthService {
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
     console.log(decodedToken, token);
-    return decodedToken.role;
+    return decodedToken?.role;
   }
   forgotPassword(email: string): Observable<void> {
     return this.http.post<void>(`${this.apiURL}/auth/forgotPassword`, {

@@ -1,25 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NosEntreprisesComponent } from '../components/nos-entreprises/nos-entreprises.component';
-import { NosStagiairesComponent } from '../components/nos-stagiaires/nos-stagiaires.component';
-import { FeedbackComponent } from '../components/feedback/feedback.component';
 import { CalendrierComponent } from '../components/calendrier/calendrier.component';
 
-
 const routes: Routes = [
-  {
-    path: 'nos-societes',
-    component: NosEntreprisesComponent,
-  },
-  {
-    path: 'nos-stagiaires',
-    component: NosStagiairesComponent,
-  },
-
-  {
-    path: 'feedback',
-    component: FeedbackComponent,
-  },
   {
     path: 'offres',
     loadChildren: () =>
@@ -36,8 +19,13 @@ const routes: Routes = [
       import('../modules/company/company.module').then((m) => m.CompanyModule),
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('../modules/admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
     path: 'evenements',
-    component: CalendrierComponent
+    component: CalendrierComponent,
   },
 ];
 
@@ -45,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}

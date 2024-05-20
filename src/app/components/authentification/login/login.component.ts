@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -20,14 +21,17 @@ export class LoginComponent implements OnInit{
 
   login(){
     let data=this.addForm.getRawValue()
-    // if(data.email!==data.email)
-    //   {
-    //     alert("utilisateur n'est pas enregistré");
-    //     return;
-    //   }else{
-      console.log(data)
-      this.sAuth.login(data)
-      // };
+    if(data.email === '' || data.password === ''){
+      Swal.fire({
+        title: 'Erreur!',
+        text: 'Veuillez remplir tous les champs',
+        icon: 'error',
+      });
+      return;
+    }
+
+    console.log(data)
+    return this.sAuth.login(data)
   };
 
  

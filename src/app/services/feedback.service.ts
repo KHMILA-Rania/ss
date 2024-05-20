@@ -14,7 +14,7 @@ export class FeedbackService {
   };
 
   getAllFeedback(){
-    return this.http.get(`${this.apiURL}/feedback/allFeedback`)
+    return this.http.get(`${this.apiURL}/feedback/allFeedback`);
   };
   getFeedbackById(id:number){
     return this.http.get(`${this.apiURL}/feedback/getFeedback/${id}`);

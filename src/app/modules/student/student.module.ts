@@ -6,6 +6,8 @@ import { StudentRoutingModule } from './student-routing.module';
 import { MesCandidaturesComponent } from 'src/app/components/stagiaires/mes-candidatures/mes-candidatures.component';
 import { AcceuilComponent } from 'src/app/pages/acceuil/acceuil.component';
 import { PrimeNgModule } from '../shared/shared.module';
+import { SuiviCandidatureComponent } from 'src/app/components/stagiaires/suivi-candidature/suivi-candidature.component';
+import { FeedbackComponent } from 'src/app/components/stagiaires/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -13,9 +15,10 @@ import { PrimeNgModule } from '../shared/shared.module';
     ProfilComponent,
     CVComponent,
     MesCandidaturesComponent,
-    
+    SuiviCandidatureComponent,
+    FeedbackComponent,
   ],
-  imports: [CommonModule, StudentRoutingModule, PrimeNgModule,],
+  imports: [CommonModule, StudentRoutingModule, PrimeNgModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class StudentModule {}

@@ -11,8 +11,10 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import {StyleClassModule} from 'primeng/styleclass';
 import { PrimeNgModule } from './modules/shared/shared.module';
 import { MessageService } from 'primeng/api';
+import { AcceuilAdminComponent } from './components/admin/acceuil-admin/acceuil-admin.component';
+import { ProfilComponent } from './components/admin/profil/profil.component';
 @NgModule({
-  declarations: [AppComponent,],
+  declarations: [AppComponent, AcceuilAdminComponent, ProfilComponent, ],
   imports: [
     BrowserModule,
     AppRoutingModule,

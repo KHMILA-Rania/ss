@@ -12,6 +12,7 @@ import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-
     ProfilSocieteComponent,
     AcceuilComponent,
     ListeCandidaturesComponent,
+
   ],
   imports: [CommonModule, CompanyRoutingModule, PrimeNgModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

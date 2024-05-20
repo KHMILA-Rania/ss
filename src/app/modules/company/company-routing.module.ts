@@ -26,11 +26,11 @@ const routes: Routes = [
   {
     path: 'mes-offres',
     component: MesOffresComponent,
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CompanyRoutingModule { }
+export class CompanyRoutingModule {}

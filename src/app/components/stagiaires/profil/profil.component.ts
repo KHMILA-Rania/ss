@@ -17,6 +17,7 @@ export class ProfilComponent implements OnInit {
   curretnUserId: any;
   currentUser: any;
   role = sessionStorage.getItem('role');
+  user = sessionStorage.getItem('userId')
   profileDetail: any;
   constructor(
     private profilS: StagiaireService,
@@ -24,7 +25,7 @@ export class ProfilComponent implements OnInit {
     private userService: UserService
   ) {
     this.curretnUserId = this.authservice.getUserId();
-    this.userService.getOne(this.curretnUserId).subscribe((res: any) => {
+    this.userService.getOne(this.user).subscribe((res: any) => {
       this.currentUser = res.data;
     });
     this.idUser = this.authservice.getUserId();
@@ -32,15 +33,15 @@ export class ProfilComponent implements OnInit {
       nom: new FormControl(''),
       prenom: new FormControl(''),
       email: new FormControl(''),
-      cin: new FormControl(''),
       date_naissance: new FormControl(''),
+      password: new FormControl(''),
       sexe: new FormControl(''),
       adresse: new FormControl(''),
       ville: new FormControl(''),
-      code_postal: new FormControl(''),
       cv: new FormControl(''),
       etablissement: new FormControl(''),
       telephone: new FormControl(''),
+      domaine: new FormControl(''),
     });
 
     this.addFormP = new FormGroup({
@@ -50,8 +51,6 @@ export class ProfilComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    console.log(this.curretnUserId);;
-    console.log(this.currentUser);
     this.userService.getOne(this.curretnUserId).subscribe((res: any) => {
       this.profileDetail = res.data;
       console.log(this.profileDetail);

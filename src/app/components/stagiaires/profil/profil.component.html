@@ -111,10 +111,10 @@
             <label class="font-medium text-900">Prenom</label>
             <input type="text" pInputText formControlName="prenom" />
           </div>
-          <div class="field mb-4 col-12 md:col-4">
-            <label for="city" class="font-medium text-900">CIN</label>
-            <input id="city" type="text" pInputText  formControlName="cin" />
-          </div>
+          <!-- <div class="field mb-4 col-12 md:col-4">
+            <label  class="font-medium text-900">Password</label>
+            <input type="password" pInputText  formControlName="password" />
+          </div> -->
           <div class="field mb-4 col-12 md:col-6">
             <label for="email" class="font-medium text-900">Email</label>
             <input  id="email" type="text" pInputText formControlName="email" [value]="currentUser?.email" />
@@ -145,19 +145,13 @@
             <label for="state" class="font-medium text-900">Ville</label>
             <input id="state" type="text" pInputText />
           </div>
-          
-          
-          <div class="field mb-4 col-12 md:col-4">
-            <label for="city" class="font-medium text-900">Code postale</label>
-            <input id="city" type="text" pInputText  formControlName="code_postal"/>
-          </div>  
           <div class="field mb-4 col-12 md:col-6">
             <label for="state" class="font-medium text-900">etablissement</label>
             <input id="state" type="text" pInputText formControlName="etablissement" />
           </div>
           <div class="field mb-4 col-12 md:col-6">
-            <label for="state" class="font-medium text-900">Ville</label>
-            <input id="state" type="text" pInputText />
+            <label for="state" class="font-medium text-900">cv</label>
+            <input id="state" type="text" pInputText formControlName="cv" />
           </div>    
           <!-- <div class="field mb-4 col-12">
             <label for="website" class="font-medium text-900">website</label>
