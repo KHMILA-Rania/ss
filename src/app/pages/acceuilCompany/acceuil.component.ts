@@ -53,102 +53,7 @@ export class AcceuilComponent {
     },
   ];
   offres: any[] = [
-    {
-      user: 'sami zroud',
-      titre: 'offre 2024',
-      description: 'quelque description',
-      lieux: 'mahdia',
-      domaine: 'informatique',
-      date_dexpiration: '12/06/2024',
-      duree: '1',
-      number_candidats: '6',
-      status: 'disponible',
-      date: '17/05/2024',
-    },
-    {
-      user: 'sami zroud',
-      titre: 'offre 2024',
-      description: 'quelque description',
-      lieux: 'mahdia',
-      domaine: 'informatique',
-      date_dexpiration: '12/06/2024',
-      duree: '1',
-      number_candidats: '6',
-      status: 'disponible',
-      date: '17/05/2024',
-    },
-    {
-      user: 'sami zroud',
-      titre: 'offre 2024',
-      description: 'quelque description',
-      lieux: 'mahdia',
-      domaine: 'informatique',
-      date_dexpiration: '12/06/2024',
-      duree: '1',
-      number_candidats: '6',
-      status: 'disponible',
-      date: '17/05/2024',
-    },
-    {
-      user: 'sami zroud',
-      titre: 'offre 2024',
-      description: 'quelque description',
-      lieux: 'mahdia',
-      domaine: 'informatique',
-      date_dexpiration: '12/06/2024',
-      duree: '1',
-      number_candidats: '6',
-      status: 'disponible',
-      date: '17/05/2024',
-    },
-    {
-      user: 'sami zroud',
-      titre: 'offre 2024',
-      description: 'quelque description',
-      lieux: 'mahdia',
-      domaine: 'informatique',
-      date_dexpiration: '12/06/2024',
-      duree: '1',
-      number_candidats: '6',
-      status: 'disponible',
-      date: '17/05/2024',
-    },
-    {
-      user: 'sami zroud',
-      titre: 'offre 2024',
-      description: 'quelque description',
-      lieux: 'mahdia',
-      domaine: 'informatique',
-      date_dexpiration: '12/06/2024',
-      duree: '1',
-      number_candidats: '6',
-      status: 'disponible',
-      date: '17/05/2024',
-    },
-    {
-      user: 'sami zroud',
-      titre: 'offre 2024',
-      description: 'quelque description',
-      lieux: 'mahdia',
-      domaine: 'informatique',
-      date_dexpiration: '12/06/2024',
-      duree: '1',
-      number_candidats: '6',
-      status: 'disponible',
-      date: '17/05/2024',
-    },
-    {
-      user: 'sami zroud',
-      titre: 'offre 2024',
-      description: 'quelque description',
-      lieux: 'mahdia',
-      domaine: 'informatique',
-      date_dexpiration: '12/06/2024',
-      duree: '1',
-      number_candidats: '6',
-      status: 'disponible',
-      date: '17/05/2024',
-    },
+    
   ];
   constructor(
     private messageService: MessageService,
@@ -158,13 +63,13 @@ export class AcceuilComponent {
   }
 
   ngOnInit() {
-    // this.getAllMesOffres();
+    this.getAllMesOffres();
     
   }
 
   getAllMesOffres() {
     this.OffreService.getOffresByidSociete(this.idUser).subscribe((data) => {
-      this.data = Object.values(data);
+      this.offres = Object.values(data);
     });
   }
   update() {

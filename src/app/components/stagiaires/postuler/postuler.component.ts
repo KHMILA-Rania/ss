@@ -68,34 +68,4 @@ export class PostulerComponent implements OnInit {
       console.log('Veuillez vérifier les champs');
     }
   }
-
-  getAllPostulations() {
-    this.postulS.getAllPostulations().subscribe((res) => console.log(res));
-  }
-
-  async deletePostulation(id: number) {
-    if (window.confirm('Voulez vous supprimer cette offre ?')) {
-      try {
-        await this.postulS.deletePostulation(id);
-        alert("La suppression de l'offre a bien eu lieu");
-      } catch (error) {
-        console.error(
-          "Une erreur s'est produite lors de la suppression de l'offre :",
-          error
-        );
-      }
-    }
-  }
-
-  updatePostulation(id: number, data: any) {
-    this.postulS.updatePostulation(id, data).subscribe(
-      (res) => {
-        console.log(res);
-        alert("L'offre à été modifiée avec succès");
-      },
-      (err) => {
-        alert("Erreur lors de la modification de l'offre");
-      }
-    );
-  }
 }

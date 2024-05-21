@@ -5,6 +5,7 @@ import { ProfilSocieteComponent } from 'src/app/components/entreprise/profil-soc
 import { AcceuilComponent } from 'src/app/pages/acceuilCompany/acceuil.component';
 import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-candidatures/liste-candidatures.component';
 import { PublierComponent } from 'src/app/components/entreprise/publier/publier.component';
+import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches/liste-taches.component';
 const routes: Routes = [
   {
     path: '',
@@ -25,7 +26,11 @@ const routes: Routes = [
     component: ListeCandidaturesComponent,
   },
   {
-    path: 'add',
+    path: 'liste-taches',
+    component: ListeTachesComponent
+  },
+  {
+    path: 'offres/add',
     component: PublierComponent,
   },
   {

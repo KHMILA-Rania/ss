@@ -16,19 +16,18 @@ export class ListeCandidaturesComponent implements OnInit {
   constructor(
     private postulS: PostulerService,
     private messageService: MessageService,
-    private candidatureService : CandidatureService,
+    private candidatureService: CandidatureService
   ) {
     this.items = [
       {
-        label: 'Rejeter',
+        label: 'Refuser',
         icon: 'pi pi-times',
         command: () => {
-          this.rejeter();
+          this.refuser();
         },
-        
       },
       {
-        label: 'Delete',
+        label: 'Supprimer',
         icon: PrimeIcons.TRASH,
         command: () => {
           this.delete();
@@ -38,24 +37,37 @@ export class ListeCandidaturesComponent implements OnInit {
   }
 
   getAllPostulations() {
-    this.candidatureService.getAll()
-      .subscribe((res: any) => this.data = res.data);
-      
+    this.candidatureService
+      .getAll()
+      .subscribe((res: any) => (this.data = res.data));
   }
   ngOnInit(): void {
     this.getAllPostulations();
   }
-      save(severity: string) {
-          this.messageService.add({ severity: severity, summary: 'Success', detail: 'Candidature accepté' });
-      }
 
-      rejeter() {
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'candidature rejeté' });
-      }
+  save(severity: string) {
+    this.messageService.add({
+      severity: severity,
+      summary: 'Success',
+      detail: 'Candidature accepté',
+    });
+  }
 
-      delete() {
-          this.messageService.add({ severity: 'success', summary: 'success', detail: 'Candidature supprimé' });
-      }
+  refuser() {
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'candidature rejeté',
+    });
+  }
+
+  delete() {
+    this.messageService.add({
+      severity: 'success',
+      summary: 'success',
+      detail: 'Candidature supprimé',
+    });
+  }
 
   getSeverity(status: String) {
     switch (status) {

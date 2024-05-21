@@ -9,13 +9,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NosStagiairesComponent implements OnInit {
   data: any;
-  constructor(private service: ProfilService, private serviceUsert : UserService) {}
+  constructor(private service: ProfilService, private serviceUser : UserService) {}
   ngOnInit(): void {
-    this.getAllSociete();
+    this.getAllStagiaires();
   }
-  getAllSociete() {
-    this.service.getProfils().subscribe((data) => {
-      this.data = Object.values(data);
+  getAllStagiaires() {
+    this.serviceUser.getAllStagiaires().subscribe((res:any) => {
+      this.data = Object.values(res.data);
     });
   }
 }

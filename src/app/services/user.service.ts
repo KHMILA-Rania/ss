@@ -11,6 +11,12 @@ export class UserService {
   getAllUsers() {
     return this.http.get(`${this.apiURL}/auth/getAll`);
   }
+  getAllStagiaires() {
+    return this.http.get(`${this.apiURL}/auth/getAllStagiaires`);
+  }
+  getAllSocietes() {
+    return this.http.get(`${this.apiURL}/auth/getAllSocietes`);
+  }
   getOne(id: any) {
     return this.http.get(`${this.apiURL}/auth/getOne/${id}`);
   }

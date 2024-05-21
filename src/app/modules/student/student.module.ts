@@ -9,6 +9,7 @@ import { PrimeNgModule } from '../shared/shared.module';
 import { SuiviCandidatureComponent } from 'src/app/components/stagiaires/suivi-candidature/suivi-candidature.component';
 import { FeedbackComponent } from 'src/app/components/stagiaires/feedback/feedback.component';
 import { PostulerComponent } from 'src/app/components/stagiaires/postuler/postuler.component';
+import { ParcourDeStageComponent } from 'src/app/components/stagiaires/parcour-de-stage/parcour-de-stage.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PostulerComponent } from 'src/app/components/stagiaires/postuler/postul
     MesCandidaturesComponent,
     SuiviCandidatureComponent,
     FeedbackComponent,
-    PostulerComponent
+    PostulerComponent,
+    ParcourDeStageComponent,
   ],
   imports: [CommonModule, StudentRoutingModule, PrimeNgModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { CandidatureService } from 'src/app/services/candidature.service';
 import { PostulerService } from 'src/app/services/postuler.service';
 
 @Component({
@@ -9,15 +11,17 @@ import { PostulerService } from 'src/app/services/postuler.service';
 export class MesCandidaturesComponent implements OnInit {
 data : any;
 ser :any;
-  constructor(private postulS: PostulerService) {}
+  constructor(private postulS: PostulerService, private candidatureService : CandidatureService,private authService : AuthService
+  ) {}
 
-  getAllPostulations() {
-    this.postulS
-      .getAllPostulations()
-      .subscribe((data) => (this.data = Object.values(data)));
+  getAllCandidatures() {
+    const id = this.authService.getUserId();
+    this.candidatureService.getAllMesCandidatures(id)
+      .subscribe((res) => (this.data = Object.values(res)));
+      console.log(this.data)
   }
   ngOnInit(): void {
-    this.getAllPostulations();
+    this.getAllCandidatures();
   }
 
   getSeverity(status : String) {

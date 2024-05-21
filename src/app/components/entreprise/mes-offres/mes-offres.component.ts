@@ -24,17 +24,24 @@ export class MesOffresComponent implements OnInit {
     this.rows = event.rows;
   }
 
-  constructor(private service: OffreService, private authservice: AuthService, private router : Router) {
+  constructor(
+    private service: OffreService,
+    private authservice: AuthService,
+    private router: Router
+  ) {
     this.curretnUserId = this.authservice.getUserId();
   }
 
   ngOnInit(): void {
     this.getAllMesOffres();
   }
+  addOffer(){
+    this.router.navigateByUrl('/dashboard/company/offres/add');
+  };
 
   getAllMesOffres() {
-    this.service.getOffresByidSociete(this.curretnUserId).subscribe((res) => {
-      this.data = Object.values(res);
+    this.service.getOffresByidSociete(this.curretnUserId).subscribe((res:any) => {
+      console.log(res.data);
     });
   }
   viewSubject(idSubject: any) {

@@ -7,6 +7,7 @@ import { ProfilComponent } from 'src/app/components/stagiaires/profil/profil.com
 import { SuiviCandidatureComponent } from 'src/app/components/stagiaires/suivi-candidature/suivi-candidature.component';
 import { AcceuilComponent } from 'src/app/pages/acceuil/acceuil.component';
 import { PostulerComponent } from 'src/app/components/stagiaires/postuler/postuler.component';
+import { ParcourDeStageComponent } from 'src/app/components/stagiaires/parcour-de-stage/parcour-de-stage.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'offre/:id',
     component: PostulerComponent,
+  },
+  {
+    path : 'parcoursStage',
+    component: ParcourDeStageComponent,
   },
   {
     path: 'profil',

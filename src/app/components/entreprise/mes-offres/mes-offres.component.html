@@ -3,7 +3,14 @@
     <ng-template pTemplate="caption">
       <div class="flex align-items-center justify-content-between">
         <h1>Liste de mes offres</h1>
-        <!-- <p-button icon="pi pi-refresh"></p-button> -->
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addOffer()"
+        >
+          Ajouter offre
+        </button>
       </div>
     </ng-template>
     <ng-template pTemplate="header">
@@ -23,8 +30,8 @@
         <td>{{ item?.titre }}</td>
         <td>{{ item?.duree }}</td>
         <td>{{ item?.date }}</td>
-        <td>{{ item?.date_dexpiration }}</td>
-        <td>{{ item?.number_candidats }}</td>
+        <td>{{ item?.date_dexpiration | date : "shortDate" }}</td>
+        <td>{{ item?.number_candidats | date : "shortDate" }}</td>
         <td>{{ item?.status }}</td>
         <td>{{ item?.description }}</td>
         <td>
@@ -37,24 +44,21 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Action
+              actions
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a
-                class="dropdown-item"
-                (click)="viewSubject(item?.offreStage?._id)"
+              <button class="dropdown-btn dropdown-item">
+                <i class="fas fa-trash-alt icon-delete"></i> Delete
+              </button>
+              <button
+                class="dropdown-btn dropdown-item"
+                data-toggle="modal"
+                data-target="#tableModal"
               >
-                <i class="fas fa-file"></i> Voir plus
-              </a>
-              <a class="dropdown-item" (click)="viewTask(item?._id)">
-                <i class="fas fa-tasks"></i> Voir les taches
-              </a>
+                <i class="fas fa-edit icon-update"></i> Update
+              </button>
             </div>
           </div>
-          <button>voir plus</button><br />
-          <button>modifier</button><br />
-          <button>supprimer</button>
-        </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="summary">

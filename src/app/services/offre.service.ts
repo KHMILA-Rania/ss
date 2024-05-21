@@ -31,7 +31,7 @@ export class OffreService {
 
 
   getOffresByidSociete(id:any){
-    return this.http.get(`${this.apiURL}/offre/mesOffres/${id}`);
+    return this.http.get(`${this.apiURL}/offre/getAllMesOffres/${id}`);
   }
      
 }

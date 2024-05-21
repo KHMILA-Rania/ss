@@ -27,7 +27,7 @@ export class SideBarComponent implements OnInit {
     });
     this.items2 = [
       {
-        label: 'home',
+        label: 'Liste de mes offres',
         icon: 'pi pi-fw pi-home',
         command: () => {
           this.router.navigateByUrl('/dashboard/company/mes-offres');
@@ -37,7 +37,7 @@ export class SideBarComponent implements OnInit {
         label: 'ajouter nouveau Offre',
         icon: 'pi pi-fw pi-user-plus',
         command: () => {
-          this.router.navigateByUrl('/dashboard/company/add');
+          this.router.navigateByUrl('/dashboard/company/offres/add');
         },
       },
       {
@@ -45,6 +45,13 @@ export class SideBarComponent implements OnInit {
         icon: 'pi pi-fw pi-user',
         command: () => {
           this.router.navigateByUrl('/dashboard/company/liste-candidatures');
+        },
+      },
+      {
+        label: 'Liste des taches',
+        icon: 'pi pi-fw pi-user',
+        command: () => {
+          this.router.navigateByUrl('/dashboard/company/liste-taches');
         },
       },
       {
@@ -89,6 +96,13 @@ export class SideBarComponent implements OnInit {
         icon: 'pi pi-fw pi-bookmark',
         command: () => {
           this.router.navigateByUrl('/dashboard/student/stageSauvgardes');
+        },
+      },
+      {
+        label: 'Parcours de stage',
+        icon: 'pi pi-fw pi-calendar',
+        command: () => {
+          this.router.navigateByUrl('/dashboard/student/parcoursStage');
         },
       },
       {

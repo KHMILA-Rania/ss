@@ -25,6 +25,9 @@ export class CandidatureService {
   getAll() {
     return this.http.get(`${this.apiURL}/candidatures`);
   }
+  getAllMesCandidatures(id:any) {
+    return this.http.get(`${this.apiURL}/candidatures/getAllMesCandidatures/${id}`);
+  }
 
   accepted() {
     return this.http.get(`${this.apiURL}/candidatures/accepted`);

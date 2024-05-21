@@ -7,6 +7,7 @@ import { MesOffresComponent } from 'src/app/components/entreprise/mes-offres/mes
 import { ProfilSocieteComponent } from 'src/app/components/entreprise/profil-societe/profil-societe.component';
 import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-candidatures/liste-candidatures.component';
 import { PublierComponent } from 'src/app/components/entreprise/publier/publier.component';
+import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches/liste-taches.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PublierComponent } from 'src/app/components/entreprise/publier/publier.
     AcceuilComponent,
     ListeCandidaturesComponent,
     PublierComponent,
+    ListeTachesComponent,
   ],
   imports: [CommonModule, CompanyRoutingModule, PrimeNgModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
