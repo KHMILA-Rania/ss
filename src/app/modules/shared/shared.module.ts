@@ -48,7 +48,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { StyleClassModule } from 'primeng/styleclass';
 import { ChipModule } from 'primeng/chip';
 import { CarouselModule } from 'primeng/carousel';
-
+import { SplitButtonModule } from 'primeng/splitbutton';
 
 @NgModule({
   declarations: [],
@@ -104,7 +104,7 @@ import { CarouselModule } from 'primeng/carousel';
     InputSwitchModule,
     ChipModule,
     CarouselModule,
-    
+    SplitButtonModule,
   ],
   exports: [
     CommonModule,
@@ -158,6 +158,7 @@ import { CarouselModule } from 'primeng/carousel';
     InputSwitchModule,
     ChipModule,
     CarouselModule,
+    SplitButtonModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

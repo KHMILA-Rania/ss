@@ -6,11 +6,16 @@ import { MesCandidaturesComponent } from 'src/app/components/stagiaires/mes-cand
 import { ProfilComponent } from 'src/app/components/stagiaires/profil/profil.component';
 import { SuiviCandidatureComponent } from 'src/app/components/stagiaires/suivi-candidature/suivi-candidature.component';
 import { AcceuilComponent } from 'src/app/pages/acceuil/acceuil.component';
+import { PostulerComponent } from 'src/app/components/stagiaires/postuler/postuler.component';
 
 const routes: Routes = [
   {
     path: '',
     component: AcceuilComponent,
+  },
+  {
+    path: 'offre/:id',
+    component: PostulerComponent,
   },
   {
     path: 'profil',

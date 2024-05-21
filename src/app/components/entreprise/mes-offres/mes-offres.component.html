@@ -1,43 +1,66 @@
 <div class="card">
-    <p-table [value]="data" [tableStyle]="{'min-width': '50rem'}">
-        <ng-template pTemplate="caption">
-            <div class="flex align-items-center justify-content-between">
-               <h1>Liste de mes offres</h1> 
-                <!-- <p-button icon="pi pi-refresh"></p-button> -->
+  <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h1>Liste de mes offres</h1>
+        <!-- <p-button icon="pi pi-refresh"></p-button> -->
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th scope="col">titre</th>
+
+        <th scope="col">date de publié</th>
+        <th scope="col">date d'expiration</th>
+
+        <th scope="col">status</th>
+
+        <th scope="col">actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item of data>
+      <tr>
+        <td>{{ item?.titre }}</td>
+        <td>{{ item?.duree }}</td>
+        <td>{{ item?.date }}</td>
+        <td>{{ item?.date_dexpiration }}</td>
+        <td>{{ item?.number_candidats }}</td>
+        <td>{{ item?.status }}</td>
+        <td>{{ item?.description }}</td>
+        <td>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Action
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a
+                class="dropdown-item"
+                (click)="viewSubject(item?.offreStage?._id)"
+              >
+                <i class="fas fa-file"></i> Voir plus
+              </a>
+              <a class="dropdown-item" (click)="viewTask(item?._id)">
+                <i class="fas fa-tasks"></i> Voir les taches
+              </a>
             </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
-                <th scope="col">titre</th>
-                <th scope="col">durée</th>
-                <th scope="col">date de publié</th>
-                <th scope="col">date d'expiration</th>
-                <th scope="col">nombre de candidats</th>
-                <th scope="col">status</th>
-                <th class="description" scope="col">description</th>
-                <th scope="col">c</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-item of data>
-            <tr>
-                <td>{{item?.titre}}</td>
-                <td>{{item?.duree}}</td>
-                <td>{{item?.date}}</td>
-                <td>{{item?.date_dexpiration}}</td>
-                <td>{{item?.number_candidats}}</td>
-                <td>{{item?.status}}</td>
-                <td>{{item?.description}}</td>
-                <td>
-                    <button>voir plus</button><br>
-                    <button>modifier</button><br>
-                    <button>supprimer</button>
-                </td>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="summary">
-            <div class="flex align-items-center justify-content-between">
-                In total there are {{data? data.length : 0 }} offre(s).
-            </div>
-        </ng-template>
-    </p-table>
+          </div>
+          <button>voir plus</button><br />
+          <button>modifier</button><br />
+          <button>supprimer</button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        In total there are {{ data ? data.length : 0 }} offre(s).
+      </div>
+    </ng-template>
+  </p-table>
 </div>

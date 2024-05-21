@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StagiaireService } from 'src/app/services/stagiaire.service';
+import { ProfilService } from 'src/app/services/profil.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-nos-stagiaires',
@@ -8,12 +9,12 @@ import { StagiaireService } from 'src/app/services/stagiaire.service';
 })
 export class NosStagiairesComponent implements OnInit {
   data: any;
-  constructor(private service: StagiaireService) {}
+  constructor(private service: ProfilService, private serviceUsert : UserService) {}
   ngOnInit(): void {
     this.getAllSociete();
   }
   getAllSociete() {
-    this.service.getAll().subscribe((data) => {
+    this.service.getProfils().subscribe((data) => {
       this.data = Object.values(data);
     });
   }

@@ -24,11 +24,11 @@ export class SuiviCandidatureComponent implements OnInit {
   }
 
   getDetailleCandidates() {
-    this.candidaService.acceptedById(this.idUser).subscribe((res) => {
-      this.candidature = res.data;
-      console.log(this.candidature);
-      this.getTasks();
-    });
+    // this.candidaService.acceptedById(this.idUser).subscribe((res) => {
+    //   this.candidature = res.data;
+    //   console.log(this.candidature);
+    //   this.getTasks();
+    // });
   }
 
   getTasks() {

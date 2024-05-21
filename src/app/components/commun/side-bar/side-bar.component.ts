@@ -30,24 +30,15 @@ export class SideBarComponent implements OnInit {
         label: 'home',
         icon: 'pi pi-fw pi-home',
         command: () => {
-          this.router.navigateByUrl('/dashboard/company');
+          this.router.navigateByUrl('/dashboard/company/mes-offres');
         },
       },
       {
-        label: 'mes Offres',
-        icon: 'pi pi-fw pi-pencil',
+        label: 'ajouter nouveau Offre',
+        icon: 'pi pi-fw pi-user-plus',
         command: () => {
-          this.router.navigateByUrl('/dashboard/company/mes-offres');
+          this.router.navigateByUrl('/dashboard/company/add');
         },
-        items: [
-          {
-            label: 'New',
-            icon: 'pi pi-fw pi-user-plus',
-            command: () => {
-              this.router.navigateByUrl('/dashboard/offres/add');
-            },
-          },
-        ],
       },
       {
         label: 'Liste des candidatures',
@@ -77,13 +68,6 @@ export class SideBarComponent implements OnInit {
         icon: 'pi pi-fw pi-home',
         command: () => {
           this.router.navigateByUrl('/dashboard/student');
-        },
-      },
-      {
-        label: 'offres de stage',
-        icon: 'pi pi-fw pi-pencil',
-        command: () => {
-          this.router.navigateByUrl('/dashboard/offres');
         },
       },
       {

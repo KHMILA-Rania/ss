@@ -33,7 +33,7 @@
                 <div class="flex row align-items-center justify-content-start"><p-badge [value]="item.number_candidats"
                         size="large" severity="success" class="col-1">
                     </p-badge><span class="col-4">candidatures</span></div>
-                <button type="button" class="btn btn-primary col-3">Voir plus</button>
+                <button type="button" class="btn btn-primary col-3" (click)="getOffreById(item._id)">Voir plus</button>
             </div>
 
         </div>

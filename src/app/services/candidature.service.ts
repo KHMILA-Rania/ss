@@ -10,26 +10,29 @@ export class CandidatureService {
   apiURL = environment.apiURL;
   constructor(private http: HttpClient) {}
 
-  create(data: any): Observable<any> {
+  create(data: any) {
     return this.http.post(`${this.apiURL}/candidatures`, data);
   }
 
-  accept(id: any): Observable<any> {
+  accept(id: any) {
     return this.http.put(`${this.apiURL}/candidatures/${id}/accept`, {});
   }
 
-  reject(id: any): Observable<any> {
+  reject(id: any) {
     return this.http.put(`${this.apiURL}/candidatures/${id}/reject`, {});
   }
 
-  getAll(): Observable<any> {
+  getAll() {
     return this.http.get(`${this.apiURL}/candidatures`);
   }
 
-  accepted(): Observable<any> {
+  accepted() {
     return this.http.get(`${this.apiURL}/candidatures/accepted`);
   }
-  acceptedById(id: any): Observable<any> {
+  acceptedById(id: any) {
     return this.http.get(`${this.apiURL}/candidatures/accepted/${id}`);
+  }
+  acceptById(id: any) {
+    return this.http.get(`${this.apiURL}/candidatures/${id}`);
   }
 }

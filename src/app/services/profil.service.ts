@@ -16,7 +16,7 @@ export class ProfilService {
     return this.http.get(`${this.apiURL}/profil/profils`)
   };
   getById(id:number){
-    return this.http.get(`${this.apiURL}/profil/getprofil/${id}`);
+    return this.http.get(`${this.apiURL}/profil/getProfil/${id}`);
   };
   
   updateProfil(id:number, data:any){

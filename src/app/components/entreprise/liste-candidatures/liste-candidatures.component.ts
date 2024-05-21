@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem, MessageService, PrimeIcons } from 'primeng/api';
+import { CandidatureService } from 'src/app/services/candidature.service';
 import { PostulerService } from 'src/app/services/postuler.service';
 
 @Component({
@@ -9,16 +11,51 @@ import { PostulerService } from 'src/app/services/postuler.service';
 export class ListeCandidaturesComponent implements OnInit {
   data: any;
   ser: any;
-  constructor(private postulS: PostulerService) {}
+  items: MenuItem[];
+
+  constructor(
+    private postulS: PostulerService,
+    private messageService: MessageService,
+    private candidatureService : CandidatureService,
+  ) {
+    this.items = [
+      {
+        label: 'Rejeter',
+        icon: 'pi pi-times',
+        command: () => {
+          this.rejeter();
+        },
+        
+      },
+      {
+        label: 'Delete',
+        icon: PrimeIcons.TRASH,
+        command: () => {
+          this.delete();
+        },
+      },
+    ];
+  }
 
   getAllPostulations() {
-    this.postulS
-      .getAllPostulations()
-      .subscribe((data) => (this.data = Object.values(data)));
+    this.candidatureService.getAll()
+      .subscribe((res: any) => this.data = res.data);
+      
   }
   ngOnInit(): void {
     this.getAllPostulations();
   }
+      save(severity: string) {
+          this.messageService.add({ severity: severity, summary: 'Success', detail: 'Candidature accepté' });
+      }
+
+      rejeter() {
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'candidature rejeté' });
+      }
+
+      delete() {
+          this.messageService.add({ severity: 'success', summary: 'success', detail: 'Candidature supprimé' });
+      }
 
   getSeverity(status: String) {
     switch (status) {

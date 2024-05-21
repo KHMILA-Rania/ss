@@ -15,10 +15,10 @@ export class OffreService {
   };
 
   getAllOffre(){
-    return this.http.get(`${this.apiURL}/offre/allOffres`)
+    return this.http.get(`${this.apiURL}/offre/getAllOffres`);
   };
   getOffreById(id:number){
-    return this.http.get(`${this.apiURL}/offre/monOffre/${id}`);
+    return this.http.get(`${this.apiURL}/offre/getOneOffre/${id}`);
   };
 
   updateOffre(id:number, data:any){

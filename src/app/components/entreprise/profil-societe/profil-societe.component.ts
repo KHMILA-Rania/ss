@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfilService } from 'src/app/services/profil.service';
-import { SocieteService } from 'src/app/services/societe.service';
-import { StagiaireService } from 'src/app/services/stagiaire.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -22,7 +20,7 @@ export class ProfilSocieteComponent {
   role = sessionStorage.getItem('role');
   profileDetail: any;
   constructor(
-    private profilS: SocieteService,
+    private profilS: ProfilService,
     private authservice: AuthService,
     private userService: UserService
   ) {
@@ -65,7 +63,7 @@ export class ProfilSocieteComponent {
   enregistrer() {
     let data = this.profileForm.getRawValue();
     if (this.profileForm.valid) {
-      this.profilS.createSociete(data).subscribe((res) => {
+      this.profilS.creerProfil(data).subscribe((res) => {
         alert('Le profil a été enregistré avec succès');
       });
     } else {

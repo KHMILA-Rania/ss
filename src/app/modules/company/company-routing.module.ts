@@ -4,6 +4,7 @@ import { MesOffresComponent } from 'src/app/components/entreprise/mes-offres/mes
 import { ProfilSocieteComponent } from 'src/app/components/entreprise/profil-societe/profil-societe.component';
 import { AcceuilComponent } from 'src/app/pages/acceuilCompany/acceuil.component';
 import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-candidatures/liste-candidatures.component';
+import { PublierComponent } from 'src/app/components/entreprise/publier/publier.component';
 const routes: Routes = [
   {
     path: '',
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'liste-candidatures',
     component: ListeCandidaturesComponent,
+  },
+  {
+    path: 'add',
+    component: PublierComponent,
   },
   {
     path: 'mes-offres',

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { StagiaireService } from 'src/app/services/stagiaire.service';
-import { SocieteService } from 'src/app/services/societe.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
+import { ProfilService } from 'src/app/services/profil.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,9 +15,7 @@ export class RegisterComponent implements OnInit {
   idUser: any;
   constructor(
     private sAuth: AuthService,
-    private stagiaireS: StagiaireService,
-    private societeS: SocieteService,
-    private router: Router
+    private router: Router,
   ) {
     this.addForm = new FormGroup({
       nom: new FormControl('', [Validators.required]),

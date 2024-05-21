@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SocieteService } from 'src/app/services/societe.service';
+import { ProfilService } from 'src/app/services/profil.service';
 
 @Component({
   selector: 'app-nos-entreprises',
@@ -8,12 +8,12 @@ import { SocieteService } from 'src/app/services/societe.service';
 })
 export class NosEntreprisesComponent implements  OnInit {
   data: any[]=[];
-  constructor(private service: SocieteService) { }
+  constructor(private service: ProfilService) { }
   ngOnInit(): void {
     this.getAllSociete();
   };
   getAllSociete(){
-    this.service.getAllSociete().subscribe((data)=>{(this.data = Object.values(data))
+    this.service.getProfils().subscribe((data)=>{(this.data = Object.values(data))
   })
   }
 }

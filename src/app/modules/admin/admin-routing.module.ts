@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListeFeedbacksComponent } from 'src/app/components/admin/liste-feedbacks/liste-feedbacks.component';
-import { NosEntreprisesComponent } from 'src/app/components/admin/nos-entreprises/nos-entreprises.component';
-import { NosStagiairesComponent } from 'src/app/components/admin/nos-stagiaires/nos-stagiaires.component';
+import { NosEntreprisesComponent } from 'src/app/components/admin/liste-entreprises/nos-entreprises.component';
+import { NosStagiairesComponent } from 'src/app/components/admin/liste-stagiaires/nos-stagiaires.component';
 import { AcceuilAdminComponent } from 'src/app/components/admin/acceuil-admin/acceuil-admin.component';
 import { ProfilComponent } from 'src/app/components/admin/profil/profil.component';
 const routes: Routes = [

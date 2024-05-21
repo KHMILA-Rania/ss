@@ -6,13 +6,15 @@ import { PrimeNgModule } from '../shared/shared.module';
 import { MesOffresComponent } from 'src/app/components/entreprise/mes-offres/mes-offres.component';
 import { ProfilSocieteComponent } from 'src/app/components/entreprise/profil-societe/profil-societe.component';
 import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-candidatures/liste-candidatures.component';
+import { PublierComponent } from 'src/app/components/entreprise/publier/publier.component';
+
 @NgModule({
   declarations: [
     MesOffresComponent,
     ProfilSocieteComponent,
     AcceuilComponent,
     ListeCandidaturesComponent,
-
+    PublierComponent,
   ],
   imports: [CommonModule, CompanyRoutingModule, PrimeNgModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from 'src/app/services/auth.service';
 import { OffreService } from 'src/app/services/offre.service';
 interface PageEvent {
   first: number;
@@ -13,24 +16,38 @@ interface PageEvent {
 })
 export class MesOffresComponent implements OnInit {
   data: any;
-  idUser: any;
+  curretnUserId: any;
   first: number = 0;
   rows: number = 10;
   onPageChange(event: PageEvent) {
     this.first = event.first;
     this.rows = event.rows;
   }
-  constructor(private service: OffreService) {
-    this.idUser = sessionStorage.getItem('idUser');
+
+  constructor(private service: OffreService, private authservice: AuthService, private router : Router) {
+    this.curretnUserId = this.authservice.getUserId();
   }
 
   ngOnInit(): void {
     this.getAllMesOffres();
   }
 
-  getAllMesOffres(){
-    this.service.getOffresByidSociete(this.idUser).subscribe((data) => {
-      this.data = Object.values(data);
+  getAllMesOffres() {
+    this.service.getOffresByidSociete(this.curretnUserId).subscribe((res) => {
+      this.data = Object.values(res);
     });
+  }
+  viewSubject(idSubject: any) {
+    this.router.navigateByUrl(`/offres/detailledusujet/${idSubject}`);
+  }
+  viewTask(idSubject: any) {
+    this.router.navigateByUrl(`/offres/listetaches/${idSubject}`);
+  }
+
+  filterStag(data: any[]) {
+    console.log(data, this.curretnUserId);
+    return data.filter(
+      (item: any) => item?.offreStage?.encadrant._id === this.curretnUserId
+    );
   }
 }

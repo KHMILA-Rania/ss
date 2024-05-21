@@ -12,6 +12,7 @@ import { SkillService } from 'src/app/services/skill.service';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
@@ -21,8 +22,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./cv.component.scss'],
 })
 export class CVComponent implements OnInit {
-  curretnUserId: any;
-  currentUser: any;
+  curretnUserId: any
+  currentUser:any
   profileForm: FormGroup;
   experienceForm: FormGroup;
   projectForm: FormGroup;
@@ -31,29 +32,42 @@ export class CVComponent implements OnInit {
   educationForm: FormGroup;
   cvForm: FormGroup;
   //init tables
-  experiences: any[] = [];
-  skills: any[] = [];
-  certifications: any[] = [];
-  educations: any[] = [];
-  projects: any[] = [];
-  profileDetail: any;
-  cvDetail: any;
-  isEnabled: boolean = false;
-  constructor(private profileS: ProfilService,
-  private authService: AuthService,
-  private exprService: ExperienceService,
-  private certService: CertificationService,
-  private eduService: EducationService,
-  private cvService: CvService,
-  private projService: ProjetService,
-  private skillService: SkillService,
-  private userService: UserService
-)
-  {
-    this.curretnUserId = this.authService.getUserId();
-    this.userService.getOne(this.curretnUserId).subscribe((res: any) => {
-      this.currentUser = res.data;
-    });
+  experiences: any[] = []
+  skills: any[] = []
+  certifications: any[] = []
+  educations: any[] = []
+  projects: any[] = []
+  profileDetail: any
+  cvDetail: any
+  isEnabled: boolean = false
+  editProfile:boolean = true
+  constructor(
+    private profileS: ProfilService, private cvS: CvService,
+    private authService: AuthService,
+    private exprService: ExperienceService,
+    private certService: CertificationService,
+    private eduService: EducationService,
+    private cvService: CvService,
+    private projService: ProjetService,
+    private skillService: SkillService,
+    private userService: UserService,
+    private activatedRout:ActivatedRoute
+  ) {
+
+    this.activatedRout.params.subscribe((param:any) => {
+      if(param.id){
+        this.curretnUserId = param.id
+        this.isEnabled=false
+        this.editProfile=false
+      }else{
+        this.curretnUserId = this.authService.getUserId()
+        this.editProfile=true
+      }
+    })
+    
+    this.userService.getOne(this.curretnUserId).subscribe((res:any)=>{
+      this.currentUser=res.data
+    })
     this.profileForm = new FormGroup({
       image: new FormControl(''),
       nationality: new FormControl(''),
@@ -63,6 +77,7 @@ export class CVComponent implements OnInit {
       gender: new FormControl(''),
       isEnabled: new FormControl(true),
       creationDate: new FormControl(''),
+
     });
     this.cvForm = new FormGroup({
       education: new FormControl(''),
@@ -72,53 +87,56 @@ export class CVComponent implements OnInit {
       certification: new FormControl(''),
     });
     this.experienceForm = new FormGroup({
-      entreprise: new FormControl(''),
-      poste: new FormControl(''),
-      dateDebut: new FormControl(''),
-      dateFin: new FormControl(''),
+      company: new FormControl(''),
+      job: new FormControl(''),
+      startDate: new FormControl(''),
+      endDate: new FormControl(''),
       description: new FormControl(''),
-    });
+    })
     this.projectForm = new FormGroup({
-      titre: new FormControl(''),
+      title: new FormControl(''),
       description: new FormControl(''),
       date: new FormControl(''),
-    });
+    })
     this.skilsForm = new FormGroup({
-      nom: new FormControl(''),
-      niveau: new FormControl(''),
-    });
+      name: new FormControl(''),
+      level: new FormControl(''),
+
+    })
     this.certificationForm = new FormGroup({
       domain: new FormControl(''),
       date: new FormControl(''),
-    });
+
+    })
     this.educationForm = new FormGroup({
-      institut: new FormControl(''),
-      domaineEtude: new FormControl(''),
-      dateDebut: new FormControl(''),
-      dateFin: new FormControl(''),
-    });
+      institution: new FormControl(''),
+      fieldOfStudy: new FormControl(''),
+      startDate: new FormControl(''),
+      endDate: new FormControl(''),
+    })
   }
 
   ngOnInit(): void {
-    console.log(this.curretnUserId);
+    console.log(this.curretnUserId)
     this.profileS.getById(this.curretnUserId).subscribe((res: any) => {
-      this.profileDetail = res.data;
-      console.log(this.profileDetail);
-      this.profileForm.patchValue(this.profileDetail);
-      this.getCV(this.profileDetail.cv);
-      this.initTables(this.profileDetail.cv);
-      this.isEnabled = true;
-    });
+      this.profileDetail = res.data
+      console.log(this.profileDetail)
+      this.profileForm.patchValue(this.profileDetail)
+      this.getCV(this.profileDetail.cv)
+      this.initTables(this.profileDetail.cv)
+      this.isEnabled = true
+    })
   }
 
   addProfile() {
-    // let profile = this.profileForm.getRawValue();
-    // profile.user = this.curretnUserId;
-    // console.log(profile);
-    // this.profileS.createProfile(profile).subscribe((res: any) => {
-    //   this.profileDetail = res.data;
-    //   this.createCV();
-    // });
+    let profile = this.profileForm.getRawValue();
+    profile.user = this.curretnUserId;
+    console.log(profile)
+    this.profileS.creerProfil(profile).subscribe((res: any) => {
+      this.profileDetail = res.data
+      this.createCV()
+    })
+
   }
   onFileSelected(event: Event) {
     const inputElement = event.target as HTMLInputElement;
@@ -128,46 +146,48 @@ export class CVComponent implements OnInit {
     }
   }
 
+
   addexperience() {
     let data = this.experienceForm.getRawValue();
     this.exprService.create(data).subscribe((res: any) => {
-      this.experiences.push(data);
-      this.cvDetail.experience.push(res.data._id);
-      this.updateCV();
-    });
+      this.experiences.push(data)
+      this.cvDetail.experience.push(res.data._id)
+      this.updateCV()
+    })
   }
   addproject() {
     let data = this.projectForm.getRawValue();
     this.projService.create(data).subscribe((res: any) => {
-      this.projects.push(data);
-      console.log(res.data);
-      this.cvDetail.project.push(res.data._id);
-      this.updateCV();
-    });
+      this.projects.push(data)
+      console.log(res.data)
+      this.cvDetail.project.push(res.data._id)
+      this.updateCV()
+    })
   }
   addskils() {
     let data = this.skilsForm.getRawValue();
     this.skillService.create(data).subscribe((res: any) => {
-      this.skills.push(data);
-      this.cvDetail.skill.push(res.data._id);
-      this.updateCV();
-    });
+      this.skills.push(data)
+      this.cvDetail.skill.push(res.data._id)
+      this.updateCV()
+    })
+
   }
   addcertification() {
     let data = this.certificationForm.getRawValue();
     this.certService.create(data).subscribe((res: any) => {
-      this.certifications.push(data);
-      this.cvDetail.certification.push(res.data._id);
-      this.updateCV();
-    });
+      this.certifications.push(data)
+      this.cvDetail.certification.push(res.data._id)
+      this.updateCV()
+    })
   }
   addeducation() {
     let data = this.educationForm.getRawValue();
     this.eduService.create(data).subscribe((res: any) => {
-      this.educations.push(data);
-      this.cvDetail.education.push(res.data._id);
-      this.updateCV();
-    });
+      this.educations.push(data)
+      this.cvDetail.education.push(res.data._id)
+      this.updateCV()
+    })
   }
 
   createCV() {
@@ -176,67 +196,59 @@ export class CVComponent implements OnInit {
       experience: [],
       project: [],
       skill: [],
-      certification: [],
-    };
+      certification: []
+    }
     this.cvService.create(cv).subscribe((res: any) => {
-      this.updateProfile(res?.data?._id);
-    });
+      this.updateProfile(res?.data?._id)
+    })
   }
 
   updateCV() {
     this.cvService.update(this.cvDetail, this.cvDetail._id).subscribe((res) => {
-      console.log(res);
-    });
+      console.log(res)
+    })
   }
 
   updateProfile(cv: string) {
-    // let profile = {
-    //   fullName: this.profileDetail.fullName,
-    //   phone: this.profileDetail.phone,
-    //   email: this.profileDetail.email,
-    //   role: this.profileDetail.role,
-    //   image: this.profileDetail.image,
-    //   nationality: this.profileDetail.nationality,
-    //   dateOfBirth: this.profileDetail.dateOfBirth,
-    //   address: this.profileDetail.address,
-    //   department: this.profileDetail.department,
-    //   gender: this.profileDetail.gender,
-    //   isEnabled: this.profileDetail.isEnabled,
-    //   creationDate: this.profileDetail.creationDate,
-    //   cv: cv,
-    // };
-    // this.profileS
-    //   .updateProfile(profile, this.profileDetail._id)
-    //   .subscribe((res) => {
-    //     console.log(res);
-    //   });
+    let profile = {
+      fullName: this.profileDetail.fullName,
+      phone: this.profileDetail.phone,
+      email: this.profileDetail.email,
+      role: this.profileDetail.role,
+      image: this.profileDetail.image,
+      nationality: this.profileDetail.nationality,
+      dateOfBirth: this.profileDetail.dateOfBirth,
+      address: this.profileDetail.address,
+      department: this.profileDetail.department,
+      gender: this.profileDetail.gender,
+      isEnabled: this.profileDetail.isEnabled,
+      creationDate: this.profileDetail.creationDate,
+      cv: cv,
+    }
+    this.profileS
+      .updateProfil(this.profileDetail._id, profile)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 
   getCV(id: any) {
     // this.cvService.getOne(id).subscribe((res: any) => {
-    //   this.cvDetail = res.data;
-    //   console.log(this.cvDetail);
-    // });
+    //   this.cvDetail = res.data
+    //   console.log(this.cvDetail)
+    // })
   }
 
   initTables(id: any) {
-    //   this.cvService.getOnePopulated(id).subscribe((res: any) => {
-    //     if (res.data) {
-    //       this.educations = res.data.education;
-    //       this.experiences = res.data.experience;
-    //       this.projects = res.data.project;
-    //       this.skills = res.data.skill;
-    //       this.certifications = res.data.certification;
-    //     }
-    //   });
-    // }
+    // this.cvService.getOnePopulated(id).subscribe((res: any) => {
+    //   if(res.data){
+    //     this.educations = res.data.education
+    //     this.experiences = res.data.experience
+    //     this.projects = res.data.project
+    //     this.skills = res.data.skill
+    //     this.certifications = res.data.certification
+    //   }
+  
+    // })
   }
-
-    generatePDF(){
-      let docDefinition = {
-        content:['Hello world!']
-      };
-
-      pdfMake.createPdf(docDefinition).open();
-    }
 }
