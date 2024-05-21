@@ -91,7 +91,7 @@ export class AuthService {
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
     console.log(decodedToken);
-    return decodedToken?.id;
+    return decodedToken?.userId;
   }
   getRole() {
     let token = sessionStorage.getItem('token') || '';

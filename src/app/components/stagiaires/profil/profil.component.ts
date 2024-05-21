@@ -17,7 +17,7 @@ export class ProfilComponent implements OnInit {
   curretnUserId: any;
   currentUser: any;
   role = sessionStorage.getItem('role');
-  user = sessionStorage.getItem('userId')
+  
   profileDetail: any;
   constructor(
     private profilS: StagiaireService,
@@ -25,8 +25,9 @@ export class ProfilComponent implements OnInit {
     private userService: UserService
   ) {
     this.curretnUserId = this.authservice.getUserId();
-    this.userService.getOne(this.user).subscribe((res: any) => {
+    this.userService.getOne(this.curretnUserId).subscribe((res: any) => {
       this.currentUser = res.data;
+      console.log(res.data)
     });
     this.idUser = this.authservice.getUserId();
     this.profileForm = new FormGroup({

@@ -14,7 +14,7 @@ import { MessageService } from 'primeng/api';
 import { AcceuilAdminComponent } from './components/admin/acceuil-admin/acceuil-admin.component';
 import { ProfilComponent } from './components/admin/profil/profil.component';
 @NgModule({
-  declarations: [AppComponent, AcceuilAdminComponent, ProfilComponent, ],
+  declarations: [AppComponent, ],
   imports: [
     BrowserModule,
     AppRoutingModule,
