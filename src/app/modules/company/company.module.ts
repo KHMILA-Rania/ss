@@ -8,6 +8,7 @@ import { ProfilSocieteComponent } from 'src/app/components/entreprise/profil-soc
 import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-candidatures/liste-candidatures.component';
 import { PublierComponent } from 'src/app/components/entreprise/publier/publier.component';
 import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches/liste-taches.component';
+import { CdkDrag, CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,15 @@ import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches
     ListeCandidaturesComponent,
     PublierComponent,
     ListeTachesComponent,
+    
   ],
-  imports: [CommonModule, CompanyRoutingModule, PrimeNgModule],
+  imports: [
+    CommonModule, 
+    CompanyRoutingModule, 
+    PrimeNgModule,
+    DragDropModule,
+    CdkDropList, CdkDrag
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CompanyModule {}

@@ -26,7 +26,7 @@ const routes: Routes = [
     component: ListeCandidaturesComponent,
   },
   {
-    path: 'liste-taches',
+    path: 'liste-taches/:id',
     component: ListeTachesComponent
   },
   {

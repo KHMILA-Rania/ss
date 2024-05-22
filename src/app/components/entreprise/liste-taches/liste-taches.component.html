@@ -8,11 +8,11 @@
 
       <div class="table-responsive">
         <header>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#tableModal">add</button>
-          <!-- <div class="encadrant">Name of supervisor: [Nom de l'encadrant]</div>
-          <div class="avancement">Status: [Pourcentage]%</div>  -->
+          <button class="btn btn-primary" (click)="showDialog()">add</button>
+          <div class="encadrant">Name of supervisor: [Nom de l'encadrant]</div>
+          <div class="avancement">Status: [Pourcentage]%</div> 
         </header>
-        <!-- <div class="container"cdkDropListGroup>
+        <div class="container"cdkDropListGroup>
           <div class="liste" id="Todo" 
           cdkDropList #pendingList="cdkDropList" [cdkDropListData]="pendingTask"
             [cdkDropListConnectedTo]="[pendingList,progressList,completedList]"
@@ -50,14 +50,47 @@
             </div>
          
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="modal fade" id="tableModal" tabindex="-1" role="dialog" aria-labelledby="tableModalLabel"
+<p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+      <span class="text-xl font-bold">Add task</span>
+  </ng-template>
+  <div class="card-body">
+    <form [formGroup]="addForm">
+      <div class="section section-gestion">
+        <label for="titre">Titre:</label>
+        <input formControlName="title" type="text" id="titre" name="titre" placeholder="titre" 
+          required minlength="3" maxlength="20">
+
+        <br>
+
+        <label for="description">Déscription:</label>
+        <input formControlName="description" type="text" id="description" name="description" placeholder="..."
+          required minlength="3" maxlength="20">
+
+        <br>
+
+        <label for="date">date:</label>
+        <input formControlName="date" type="date" id="date" name="date" 
+          required>
+        <br>
+   
+      </div>
+    </form>
+
+  </div>
+  <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="visible = false" label="add" styleClass="p-button-text" (click)="submit()"></p-button>
+  </ng-template>
+</p-dialog>
+
+<!-- <div class="modal fade" id="tableModal" tabindex="-1" role="dialog" aria-labelledby="tableModalLabel"
 aria-hidden="true">
 <div class="modal-dialog modal-lg" role="document">
   <div class="modal-content">
@@ -93,4 +126,4 @@ aria-hidden="true">
     </div>
   </div>
 </div>
-</div>
+</div> -->

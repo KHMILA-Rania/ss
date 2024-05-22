@@ -49,7 +49,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { ChipModule } from 'primeng/chip';
 import { CarouselModule } from 'primeng/carousel';
 import { SplitButtonModule } from 'primeng/splitbutton';
-
+import { ContextMenuModule } from 'primeng/contextmenu';
 @NgModule({
   declarations: [],
   imports: [
@@ -105,6 +105,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
     ChipModule,
     CarouselModule,
     SplitButtonModule,
+    ContextMenuModule,
   ],
   exports: [
     CommonModule,
@@ -159,6 +160,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
     ChipModule,
     CarouselModule,
     SplitButtonModule,
+    ContextMenuModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

@@ -1,8 +1,8 @@
 <div class="grid">
   <div class="col-12">
-    <div class="card">
+    <div class="card ">
       <h5>Mes Candidatures</h5>
-      <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
+      <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem'}" [autoLayout]="true" [scrollable]="true">
         <ng-template pTemplate="header">
           <tr>
             <th>nom de candidats</th>
@@ -13,8 +13,8 @@
             <th>action</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-item >
-          <tr>
+        <ng-template pTemplate="body" let-item>
+          <tr >
             <td>{{ item?.stagiaire?.nom }}</td>
             <td>{{ item?.offreStage?.titre }}</td>
             <td>{{ item.datePostulation }}</td>
@@ -25,22 +25,13 @@
               <p-button label="Voir profil" icon="pi pi-user"></p-button>
             </td>
             <td>
-              
-                <p-toast></p-toast>
-                <p-splitButton
-                  label="accepter"
-                  icon="pi pi-check"
-                  (onClick)="save('success')"
-                  [model]="items"
-                  styleClass="p-button-success mb-2"
-                ></p-splitButton>
-            
+              <p-contextMenu [model]="actions" [global]="true" (onShow)="selectCandidat(item)"></p-contextMenu>
             </td>
           </tr>
         </ng-template>
         <ng-template pTemplate="summary">
           <div class="flex align-items-center justify-content-between">
-            En totale il y'a  {{ data ? data.length : 0 }} candidature(s).
+            En totale il y'a {{ data ? data.length : 0 }} candidature(s).
           </div>
         </ng-template>
       </p-table>

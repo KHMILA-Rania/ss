@@ -38,7 +38,6 @@ export class PostulerComponent implements OnInit {
       datePostulation: new FormControl(Date.now),
       date_debut: new FormControl(''),
       date_fin: new FormControl(''),
-      status: new FormControl(''),
     });
   }
 

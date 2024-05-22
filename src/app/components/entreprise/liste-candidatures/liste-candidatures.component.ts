@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem, MessageService, PrimeIcons } from 'primeng/api';
 import { CandidatureService } from 'src/app/services/candidature.service';
 import { PostulerService } from 'src/app/services/postuler.service';
@@ -12,11 +13,29 @@ export class ListeCandidaturesComponent implements OnInit {
   data: any;
   ser: any;
   items: MenuItem[];
+  actions: MenuItem[] = [
+    {
+      label: "accepter"
+    },
+    { 
+      label: "refuser"
+     },
+    { 
+      label: "tâches",
+      command: ()=>{
+        this.router.navigateByUrl('/dashboard/company/liste-taches/'+this.selectedCandidat._id)
+      }
+     },
+
+  ]
+
+  selectedCandidat: any
 
   constructor(
     private postulS: PostulerService,
     private messageService: MessageService,
-    private candidatureService: CandidatureService
+    private candidatureService: CandidatureService,
+    private router:Router
   ) {
     this.items = [
       {
@@ -83,5 +102,9 @@ export class ListeCandidaturesComponent implements OnInit {
         return (this.ser = 'warning');
       }
     }
+  }
+
+  selectCandidat(item: any) {
+    this.selectedCandidat = item
   }
 }
