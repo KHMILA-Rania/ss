@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MenuItem, MessageService } from 'primeng/api';
+import { AuthService } from 'src/app/services/auth.service';
 import { OffreService } from 'src/app/services/offre.service';
 
 @Component({
@@ -8,8 +11,9 @@ import { OffreService } from 'src/app/services/offre.service';
   styleUrls: ['./acceuil.component.scss'],
 })
 export class AcceuilComponent {
-  idUser: any;
+  curretnUserId: any;
   data: any;
+  addForm;
   items: MenuItem[] = [
     {
       label: 'Domaines',
@@ -52,24 +56,45 @@ export class AcceuilComponent {
       ],
     },
   ];
-  offres: any[] = [
-    
-  ];
+  offres: any[] = [];
   constructor(
     private messageService: MessageService,
-    private OffreService: OffreService
+    private OffreService: OffreService,
+    private authservice: AuthService,
+    private router: Router
   ) {
-    this.idUser = sessionStorage.getItem('idUser');
+    this.curretnUserId = this.authservice.getUserId();
+    this.addForm = new FormGroup({
+      societe: new FormControl(this.curretnUserId),
+      titre: new FormControl('', [Validators.required]),
+      description: new FormControl('', Validators.required),
+      date_dexpiration: new FormControl(''),
+      duree: new FormControl(''),
+      number_candidats: new FormControl('', Validators.min(1)),
+      domaine: new FormControl(''),
+      technologies: new FormControl(''),
+      lieu: new FormControl(''),
+      date: new FormControl(Date.now()),
+    });
   }
 
   ngOnInit() {
     this.getAllMesOffres();
-    
   }
 
   getAllMesOffres() {
-    this.OffreService.getOffresByidSociete(this.idUser).subscribe((data) => {
-      this.offres = Object.values(data);
+    this.OffreService.getOffresByidSociete(this.curretnUserId).subscribe(
+      (res: any) => {
+        console.log(res.data);
+        this.data = res.data;
+      }
+    );
+  }
+  getOffreById(id: any) {
+    this.router.navigateByUrl(`/dashboard/company/offre/${id}`);
+
+    this.OffreService.getOffreById(id).subscribe((data) => {
+      this.data = Object.values(data);
     });
   }
   update() {

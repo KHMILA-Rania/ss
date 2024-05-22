@@ -4,6 +4,7 @@ import { MenuItem, MessageService, PrimeIcons } from 'primeng/api';
 import { CandidatureService } from 'src/app/services/candidature.service';
 import { PostulerService } from 'src/app/services/postuler.service';
 
+
 @Component({
   selector: 'app-liste-candidatures',
   templateUrl: './liste-candidatures.component.html',
@@ -11,11 +12,14 @@ import { PostulerService } from 'src/app/services/postuler.service';
 })
 export class ListeCandidaturesComponent implements OnInit {
   data: any;
-  ser: any;
-  items: MenuItem[];
+  
   actions: MenuItem[] = [
     {
-      label: "accepter"
+      label: "accepter",
+      command:()=>{
+        this.accepter(this.selectedCandidat._id);
+        console.log("accepter");
+      }
     },
     { 
       label: "refuser"
@@ -37,22 +41,7 @@ export class ListeCandidaturesComponent implements OnInit {
     private candidatureService: CandidatureService,
     private router:Router
   ) {
-    this.items = [
-      {
-        label: 'Refuser',
-        icon: 'pi pi-times',
-        command: () => {
-          this.refuser();
-        },
-      },
-      {
-        label: 'Supprimer',
-        icon: PrimeIcons.TRASH,
-        command: () => {
-          this.delete();
-        },
-      },
-    ];
+
   }
 
   getAllPostulations() {
@@ -62,6 +51,7 @@ export class ListeCandidaturesComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getAllPostulations();
+
   }
 
   save(severity: string) {
@@ -72,37 +62,20 @@ export class ListeCandidaturesComponent implements OnInit {
     });
   }
 
-  refuser() {
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Success',
-      detail: 'candidature rejeté',
-    });
+  refuser(id:any) {
+    this.candidatureService.refuserCandidature(id).subscribe((res:any)=>{
+      this.data =res.data
+    })
   }
 
-  delete() {
-    this.messageService.add({
-      severity: 'success',
-      summary: 'success',
-      detail: 'Candidature supprimé',
-    });
+  accepter(id:any) {
+    this.candidatureService
+      .accepterCandidature(id)
+      .subscribe((res: any) => {
+        this.data = res.data
+      });
   }
 
-  getSeverity(status: String) {
-    switch (status) {
-      case 'accepté': {
-        return (this.ser = 'success');
-        break;
-      }
-      case 'refusé': {
-        return (this.ser = 'danger');
-        break;
-      }
-      default: {
-        return (this.ser = 'warning');
-      }
-    }
-  }
 
   selectCandidat(item: any) {
     this.selectedCandidat = item

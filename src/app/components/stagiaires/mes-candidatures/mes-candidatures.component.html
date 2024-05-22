@@ -20,14 +20,14 @@
                 'bg-yellow-500':item.status == 'en_attente',
                 'bg-red-500':item.status == 'refuser',
             }">
-                <td>{{item.nom}}</td>
+                <td>{{item?.offrestage?.nom}}</td>
                 <td>{{item.email}}</td>
                 <td>{{item.datePostulation|date:'shortDate'}}</td>
                 <td >
                     {{item?.status}}
                 </td>
                 <td>
-                  <button pButton pRipple type="button" label="Supprimer" class="p-button-raised p-button-danger"></button>
+                  <button pButton pRipple type="button" label="Supprimer" class="p-button-raised p-button-danger" (click)="supprimer(item?._id)"></button>
                 </td>
             </tr>
         </ng-template>

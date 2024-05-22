@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import {OffreService} from  'src/app/services/offre.service' ;
-import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-publier',
   templateUrl: './publier.component.html',
@@ -16,6 +18,7 @@ export class PublierComponent implements OnInit {
   constructor(
     private offreSer: OffreService,
     private authservice: AuthService,
+    private router:Router
 
   ) {
     this.curretnUserId = this.authservice.getUserId();
@@ -26,7 +29,7 @@ export class PublierComponent implements OnInit {
       date_dexpiration: new FormControl(''),
       duree: new FormControl(''),
       number_candidats: new FormControl('', Validators.min(1)),
-      status: new FormControl(''),
+      domaine: new FormControl(''),
       technologies: new FormControl(''),
       lieu: new FormControl(''),
       date: new FormControl(Date.now()),
@@ -42,8 +45,13 @@ export class PublierComponent implements OnInit {
     if (this.addForm.valid) {
       this.offreSer.createOffre(data).subscribe(
         (res) => {
-          alert("L'offre a été ajoutée avec succès");
           console.log(data);
+          this.router.navigateByUrl('/company');
+          Swal.fire({
+            title: 'succes!',
+            text: "L'offre a été ajoutée avec succès",
+            icon: 'success',
+          });
         },
         (err) => console.error(err)
       );

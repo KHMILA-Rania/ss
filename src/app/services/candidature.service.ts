@@ -13,6 +13,15 @@ export class CandidatureService {
   create(data: any) {
     return this.http.post(`${this.apiURL}/candidatures`, data);
   }
+  accepterCandidature(id: any) {
+    return this.http.put(`${this.apiURL}/candidatures/accepter/${id}`, {});
+  }
+  refuserCandidature(id :any){
+    return this.http.put(`${this.apiURL}/candidatures/refuser/${id}`, {});
+  }
+  deleteCandidature(id: any) {
+    return this.http.delete(`${this.apiURL}/candidatures/${id}`);
+  }
 
   accept(id: any) {
     return this.http.put(`${this.apiURL}/candidatures/${id}/accept`, {});
@@ -25,8 +34,10 @@ export class CandidatureService {
   getAll() {
     return this.http.get(`${this.apiURL}/candidatures`);
   }
-  getAllMesCandidatures(id:any) {
-    return this.http.get(`${this.apiURL}/candidatures/getAllMesCandidatures/${id}`);
+  getAllMesCandidatures(id: any) {
+    return this.http.get(
+      `${this.apiURL}/candidatures/getAllMesCandidatures/${id}`
+    );
   }
 
   accepted() {

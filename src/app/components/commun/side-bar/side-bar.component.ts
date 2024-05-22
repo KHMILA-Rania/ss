@@ -47,13 +47,13 @@ export class SideBarComponent implements OnInit {
           this.router.navigateByUrl('/dashboard/company/liste-candidatures');
         },
       },
-      {
-        label: 'Liste des taches',
-        icon: 'pi pi-fw pi-user',
-        command: () => {
-          this.router.navigateByUrl('/dashboard/company/liste-taches');
-        },
-      },
+      // {
+      //   label: 'Liste des taches',
+      //   icon: 'pi pi-fw pi-user',
+      //   command: () => {
+      //     this.router.navigateByUrl('/dashboard/company/liste-taches');
+      //   },
+      // },
       {
         label: 'Events',
         icon: 'pi pi-fw pi-calendar',

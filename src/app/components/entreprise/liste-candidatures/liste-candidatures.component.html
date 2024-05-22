@@ -1,8 +1,13 @@
 <div class="grid">
   <div class="col-12">
-    <div class="card ">
+    <div class="card">
       <h5>Mes Candidatures</h5>
-      <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem'}" [autoLayout]="true" [scrollable]="true">
+      <p-table
+        [value]="data"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [autoLayout]="true"
+        [scrollable]="true"
+      >
         <ng-template pTemplate="header">
           <tr>
             <th>nom de candidats</th>
@@ -14,10 +19,16 @@
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-item>
-          <tr >
+          <tr
+            [ngClass]="{
+                'bg-green-500':item.status == 'accepter',
+                'bg-yellow-500':item.status == 'en_attente',
+                'bg-red-500':item.status == 'refuser',
+            }"
+          >
             <td>{{ item?.stagiaire?.nom }}</td>
             <td>{{ item?.offreStage?.titre }}</td>
-            <td>{{ item.datePostulation }}</td>
+            <td>{{ item.datePostulation | date : "shortDate" }}</td>
             <td>
               {{ item.status }}
             </td>
@@ -25,7 +36,14 @@
               <p-button label="Voir profil" icon="pi pi-user"></p-button>
             </td>
             <td>
-              <p-contextMenu [model]="actions" [global]="true" (onShow)="selectCandidat(item)"></p-contextMenu>
+
+
+              <p-dropdown 
+        [options]="actions" 
+        [(ngModel)]="actions" 
+        optionLabel="label"
+        placeholder="actions" />
+              <p-contextMenu [model]="actions" [global]="true" (onShow)="selectCandidat(item?.stagiaire?._id)"></p-contextMenu>
             </td>
           </tr>
         </ng-template>

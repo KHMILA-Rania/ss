@@ -26,7 +26,11 @@ export class MesCandidaturesComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCandidatures();
   }
-
+  supprimer(id:any){
+    this.candidatureService.deleteCandidature(id).subscribe((res:any)=>{
+      console.log(res)
+    })
+  }
 
 }
 

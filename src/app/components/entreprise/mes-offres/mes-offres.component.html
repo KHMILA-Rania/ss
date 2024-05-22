@@ -27,13 +27,11 @@
     </ng-template>
     <ng-template pTemplate="body" let-item of data>
       <tr>
+            
         <td>{{ item?.titre }}</td>
-        <td>{{ item?.duree }}</td>
-        <td>{{ item?.date }}</td>
+        <td>{{ item?.date | date : "shortDate"  }}</td>
         <td>{{ item?.date_dexpiration | date : "shortDate" }}</td>
-        <td>{{ item?.number_candidats | date : "shortDate" }}</td>
         <td>{{ item?.status }}</td>
-        <td>{{ item?.description }}</td>
         <td>
           <div class="dropdown">
             <button

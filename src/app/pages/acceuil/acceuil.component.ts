@@ -89,8 +89,8 @@ export class AcceuilComponent {
     this.getAllOffres();
   }
   getAllOffres() {
-    this.OffreService.getAllOffre().subscribe((data) => {
-      this.offres = Object.values(data);
+    this.OffreService.getAllOffre().subscribe((res: any) => {
+      this.offres = res;
     });
   }
   getOffreById(id: any) {

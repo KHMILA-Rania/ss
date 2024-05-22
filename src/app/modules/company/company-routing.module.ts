@@ -6,6 +6,7 @@ import { AcceuilComponent } from 'src/app/pages/acceuilCompany/acceuil.component
 import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-candidatures/liste-candidatures.component';
 import { PublierComponent } from 'src/app/components/entreprise/publier/publier.component';
 import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches/liste-taches.component';
+import { DetailOffreComponent } from 'src/app/components/entreprise/detail-offre/detail-offre.component';
 const routes: Routes = [
   {
     path: '',
@@ -27,11 +28,15 @@ const routes: Routes = [
   },
   {
     path: 'liste-taches/:id',
-    component: ListeTachesComponent
+    component: ListeTachesComponent,
   },
   {
     path: 'offres/add',
     component: PublierComponent,
+  },
+  {
+    path: 'offre/:id',
+    component: DetailOffreComponent,
   },
   {
     path: 'mes-offres',

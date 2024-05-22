@@ -9,6 +9,8 @@ import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-
 import { PublierComponent } from 'src/app/components/entreprise/publier/publier.component';
 import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches/liste-taches.component';
 import { CdkDrag, CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
+import { DetailOffreComponent } from 'src/app/components/entreprise/detail-offre/detail-offre.component';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { CdkDrag, CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
     ListeCandidaturesComponent,
     PublierComponent,
     ListeTachesComponent,
+    DetailOffreComponent
     
   ],
   imports: [

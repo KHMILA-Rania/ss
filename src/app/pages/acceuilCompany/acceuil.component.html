@@ -20,9 +20,9 @@
         </p-menu>
     </div>
 
-    <div class="col-8 flex row wrap  justify-content-start gap-5 ">
-        <div class="card col-4 " *ngFor="let item of offres">
-            <div class="card-body contener">
+    <div class="col-8 flex row wrap  justify-content-start gap-5 " >
+        <div class="card col-4 " *ngFor="let item of data" >
+            <div class="card-body contener" >
                 <h5 class="card-title">{{item.titre}}</h5>
                 <p class="card-text">Lieux : {{item.lieux}}</p>
                 <p class="card-text">{{item.description}}</p>
@@ -34,9 +34,10 @@
                 <div class="flex row align-items-center justify-content-start"><p-badge [value]="item.number_candidats"
                         size="large" severity="success" class="col-1">
                     </p-badge><span class="col-4">candidatures</span></div>
-                <button type="button" class="btn btn-primary col-3">Voir plus</button>
+                <button type="button" class="btn btn-primary col-3" (click)="getOffreById(item._id)">Voir plus</button>
             </div>
-
         </div>
-
     </div>
+
+
+

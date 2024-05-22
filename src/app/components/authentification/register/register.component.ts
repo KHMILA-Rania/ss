@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
-import { ProfilService } from 'src/app/services/profil.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

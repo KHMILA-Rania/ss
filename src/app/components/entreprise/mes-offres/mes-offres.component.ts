@@ -42,6 +42,7 @@ export class MesOffresComponent implements OnInit {
   getAllMesOffres() {
     this.service.getOffresByidSociete(this.curretnUserId).subscribe((res:any) => {
       console.log(res.data);
+      this.data = res.data;
     });
   }
   viewSubject(idSubject: any) {

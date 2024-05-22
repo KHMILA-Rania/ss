@@ -55,7 +55,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     TagModule,
     SplitterModule,
     PrimeNgModule,
-    FullCalendarModule,
+    FullCalendarModule
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
