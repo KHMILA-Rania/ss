@@ -13,50 +13,50 @@ import { PostulerService } from 'src/app/services/postuler.service';
 })
 export class ListeCandidaturesComponent implements OnInit {
   data: any;
-  
+  currentIdUser:any;
   actions: MenuItem[] = [
     {
-      label: "accepter",
-      command:()=>{
-        this.accepter(this.selectedCandidat._id);
-        console.log("accepter");
-      }
+      label: 'accepter',
+      command: () => {
+        this.accepter(this.data?.item?.stagiaire?._idtthis);
+        console.log('accepter');
+      },
     },
-    { 
-      label: "refuser"
-     },
-    { 
-      label: "tâches",
-      command: ()=>{
-        this.router.navigateByUrl('/dashboard/company/liste-taches/'+this.selectedCandidat._id)
-      }
-     },
+    {
+      label: 'refuser',
+    },
+    {
+      label: 'tâches',
+      command: () => {
+        this.router.navigateByUrl(
+          '/dashboard/company/liste-taches/' + this.selectedCandidat._id
+        );
+      },
+    },
+  ];
 
-  ]
-
-  selectedCandidat: any
+  selectedCandidat: any;
 
   constructor(
-    private postulS: PostulerService,
     private messageService: MessageService,
     private candidatureService: CandidatureService,
-    private router:Router,
-    private authService : AuthService
+    private router: Router,
+    private authService: AuthService
   ) {
-
+    this.currentIdUser = this.authService.getUserId();
   }
 
   getAllPostulations() {
-    const id = this.authService.getUserId();
+    const currentIdUser = this.authService.getUserId();
     this.candidatureService
-      .getMesCandidatures(id)
-      .subscribe((res: any) => {this.data = res.data
-        console.log(this.data)
+      .getMesCandidatures(currentIdUser)
+      .subscribe((res: any) => {
+        this.data = this.filterCandidature(res.data);
+        console.log(this.data);
       });
   }
   ngOnInit(): void {
     this.getAllPostulations();
-
   }
 
   save(severity: string) {
@@ -67,22 +67,26 @@ export class ListeCandidaturesComponent implements OnInit {
     });
   }
 
-  refuser(id:any) {
-    this.candidatureService.refuserCandidature(id).subscribe((res:any)=>{
-      this.data =res.data
-    })
+  refuser(id: any) {
+    this.candidatureService.refuserCandidature(id).subscribe((res: any) => {
+      this.data = res.data;
+    });
   }
 
-  accepter(id:any) {
-    this.candidatureService
-      .accepterCandidature(id)
-      .subscribe((res: any) => {
-        this.data = res.data
-      });
+  accepter(id: any) {
+    this.candidatureService.accepterCandidature(id).subscribe((res: any) => {
+      this.data = res.data;
+    });
   }
-
 
   selectCandidat(item: any) {
-    this.selectedCandidat = item
+    this.selectedCandidat = item;
+  }
+
+  filterCandidature(data: any[]) {
+    console.log(data, this.currentIdUser);
+    return data.filter(
+      (item: any) => item?.offreStage?.societe._id === this.currentIdUser
+    );
   }
 }

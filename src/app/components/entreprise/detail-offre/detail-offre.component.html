@@ -15,8 +15,9 @@
           <h1 class="card-title col-10 text-center">{{ data?.titre }}</h1>
         </div>
         <div class="row">
-          <p class="col-6">Lieux: {{ data?.lieu}}</p>
-          <p class=" description">{{ data?.description }}</p>
+          <p class="col-8">Lieux: {{ data?.lieu}}</p>
+          <p class="col-4">publier le : {{ data?.date|date}}</p>
+          <p class=" description">Description: {{ data?.description }}</p>
         </div>
         <div class="row col-12 align-items-end justify-content-end gap-2">
           <p class=" col-3 text-muted">

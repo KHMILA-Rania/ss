@@ -24,7 +24,7 @@
             <div class="tache row gap-2" cdkDrag  *ngFor="let taskP of pendingTask"  [cdkDragData]="taskP">
               <span>{{taskP?.title}}</span>
               <span>{{taskP?.description}}</span>
-              <span>{{taskP?.date}}</span>
+              <span>{{taskP?.date | date : "shortDate" }}</span>
             </div>
 
           </div>
@@ -36,7 +36,7 @@
             <div class="tache row gap-2" id="tache1"cdkDrag *ngFor="let taskProg of progressTask" [cdkDragData]="taskProg">
               <span>{{taskProg?.title}}</span>
               <span>{{taskProg?.description}}</span>
-              <span>{{taskProg?.date}}</span>
+              <span>{{taskProg?.date | date : "shortDate" }}</span>
             </div>
 
           </div>
@@ -48,7 +48,7 @@
             <div class="tache row gap-2" id="tache1"cdkDrag *ngFor="let taskC of completedTask" [cdkDragData]="taskC">
               <span>{{taskC?.title}}</span>
               <span>{{taskC?.description}}</span>
-              <span>{{taskC?.date}}</span>
+              <span>{{taskC?.date | date : "shortDate" }}</span>
             </div>
          
           </div>

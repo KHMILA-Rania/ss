@@ -40,7 +40,7 @@ export class DetailOffreComponent implements OnInit {
       duree: new FormControl(''),
       number_candidats: new FormControl(''),
       status: new FormControl(''),
-      date: new FormControl(''),
+
     });
   }
   ngOnInit(): void {
@@ -73,8 +73,9 @@ export class DetailOffreComponent implements OnInit {
   updateOffre(id: any) {
     let data = this.offreForm.getRawValue();
     try {
-      this.service.updateOffre(id, data).subscribe((res) => {
+      this.service.updateOffre(id, data).subscribe((res:any) => {
         console.log(res);
+        
       });
     } catch (error) {
       console.log(error);

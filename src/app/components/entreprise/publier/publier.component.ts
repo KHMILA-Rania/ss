@@ -24,14 +24,14 @@ export class PublierComponent implements OnInit {
     this.curretnUserId = this.authservice.getUserId();
     this.addForm = new FormGroup({
       societe: new FormControl(this.curretnUserId),
-      titre: new FormControl('', [Validators.required]),
-      description: new FormControl('', Validators.required),
-      date_dexpiration: new FormControl(''),
-      duree: new FormControl(''),
-      number_candidats: new FormControl('', Validators.min(1)),
-      domaine: new FormControl(''),
-      technologies: new FormControl(''),
-      lieu: new FormControl(''),
+      titre: new FormControl(),
+      description: new FormControl( ),
+      date_dexpiration: new FormControl(),
+      duree: new FormControl(),
+      number_candidats: new FormControl(),
+      domaine: new FormControl(),
+      technologies: new FormControl(),
+      lieu: new FormControl(),
       date: new FormControl(Date.now()),
     });
   }
