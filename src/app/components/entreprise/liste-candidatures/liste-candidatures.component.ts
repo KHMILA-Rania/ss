@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem, MessageService, PrimeIcons } from 'primeng/api';
+import { AuthService } from 'src/app/services/auth.service';
 import { CandidatureService } from 'src/app/services/candidature.service';
 import { PostulerService } from 'src/app/services/postuler.service';
 
@@ -39,15 +40,19 @@ export class ListeCandidaturesComponent implements OnInit {
     private postulS: PostulerService,
     private messageService: MessageService,
     private candidatureService: CandidatureService,
-    private router:Router
+    private router:Router,
+    private authService : AuthService
   ) {
 
   }
 
   getAllPostulations() {
+    const id = this.authService.getUserId();
     this.candidatureService
-      .getAll()
-      .subscribe((res: any) => (this.data = res.data));
+      .getMesCandidatures(id)
+      .subscribe((res: any) => {this.data = res.data
+        console.log(this.data)
+      });
   }
   ngOnInit(): void {
     this.getAllPostulations();

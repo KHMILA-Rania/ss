@@ -9,6 +9,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-liste-taches',
   templateUrl: './liste-taches.component.html',
@@ -19,6 +20,7 @@ export class ListeTachesComponent implements OnInit {
   currentUserId:any
   candidaId:any
   candidature:any
+  candidatur:any;
   pendingTask: any[] = []
   progressTask: any[] = []
   completedTask: any[] = []
@@ -31,7 +33,8 @@ export class ListeTachesComponent implements OnInit {
     private activRoute:ActivatedRoute,
     private candidatureService:CandidatureService,
     private taskService:TacheService,
-    private authService:AuthService
+    private authService:AuthService,
+    private serviceUser : UserService
   )
   {
     this.addForm = new FormGroup({
@@ -44,7 +47,9 @@ export class ListeTachesComponent implements OnInit {
       console.log(this.candidaId)
     })
     this.currentUserId = this.authService.getUserId()
-
+    this.candidatur = this.candidatureService.getCandidature(this.candidaId)
+    
+    
   }
 
   ngOnInit(): void {

@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { CandidatureService } from 'src/app/services/candidature.service';
 import { OffreService } from 'src/app/services/offre.service';
 import { PostulerService } from 'src/app/services/postuler.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-postuler',
@@ -15,16 +16,19 @@ import { PostulerService } from 'src/app/services/postuler.service';
 export class PostulerComponent implements OnInit {
   addForm: FormGroup;
   data: any;
+  postDetail:any;
   idPost: any;
-  curretnUserId:any;
+  curretnUserId: any;
+  curretnUser: any;
   constructor(
-    private postulS: PostulerService,
+    private userService: UserService,
     private service: OffreService,
     private acttivatedRoot: ActivatedRoute,
-    private authService : AuthService,
-    private candidatureService : CandidatureService,
+    private authService: AuthService,
+    private candidatureService: CandidatureService
   ) {
     this.curretnUserId = this.authService.getUserId();
+    
     this.acttivatedRoot.params.subscribe((param: any) => {
       this.idPost = param.id;
     });
@@ -42,6 +46,10 @@ export class PostulerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.curretnUser = this.userService.getOne(this.curretnUserId).subscribe((res:any)=>{
+      this.postDetail = res.data;
+      this.addForm.patchValue(this.postDetail)
+    })
     this.service.getOffreById(this.idPost).subscribe((res) => {
       console.log(res);
       this.data = res;

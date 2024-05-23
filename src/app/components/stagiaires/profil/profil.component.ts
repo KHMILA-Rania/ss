@@ -34,7 +34,6 @@ export class ProfilComponent implements OnInit {
       prenom: new FormControl(''),
       email: new FormControl(''),
       date_naissance: new FormControl(''),
-      password: new FormControl(''),
       sexe: new FormControl(''),
       adresse: new FormControl(''),
       ville: new FormControl(''),
@@ -42,6 +41,7 @@ export class ProfilComponent implements OnInit {
       etablissement: new FormControl(''),
       telephone: new FormControl(''),
       domaine: new FormControl(''),
+      cin : new FormControl('')
     });
 
     this.addFormP = new FormGroup({
@@ -54,6 +54,10 @@ export class ProfilComponent implements OnInit {
     this.userService.getOne(this.curretnUserId).subscribe((res: any) => {
       this.profileDetail = res.data;
       this.profileForm.patchValue(this.profileDetail);
+    });
+    this.profilS.getById(this.curretnUserId).subscribe((res:any) => {
+      this.profileDetail = res.data
+      this.profileForm.patchValue(this.profileDetail)
     });
   }
 
@@ -70,6 +74,9 @@ export class ProfilComponent implements OnInit {
 
   getProfils() {
     this.profilS.getProfils().subscribe((res) => console.log(res));
+  }
+  getProfil(id:any){
+    
   }
   getById(id: number) {
     this.userService.getOne(id).subscribe((res: any) => {

@@ -16,13 +16,15 @@ export class CandidatureService {
   accepterCandidature(id: any) {
     return this.http.put(`${this.apiURL}/candidatures/accepter/${id}`, {});
   }
-  refuserCandidature(id :any){
+  refuserCandidature(id: any) {
     return this.http.put(`${this.apiURL}/candidatures/refuser/${id}`, {});
   }
   deleteCandidature(id: any) {
     return this.http.delete(`${this.apiURL}/candidatures/${id}`);
   }
-
+  getCandidature(is: any) {
+    return this.http.get(`${this.apiURL}/candidatures/candidature/${is}`);
+  }
   accept(id: any) {
     return this.http.put(`${this.apiURL}/candidatures/${id}/accept`, {});
   }
@@ -39,7 +41,11 @@ export class CandidatureService {
       `${this.apiURL}/candidatures/getAllMesCandidatures/${id}`
     );
   }
-
+  getMesCandidatures(id: any) {
+    return this.http.get(
+      `${this.apiURL}/candidatures/getMesCandidatures/${id}`
+    );
+  }
   accepted() {
     return this.http.get(`${this.apiURL}/candidatures/accepted`);
   }

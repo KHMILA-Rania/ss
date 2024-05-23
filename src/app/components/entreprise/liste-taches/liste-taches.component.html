@@ -9,6 +9,8 @@
       <div class="table-responsive">
         <header>
           <a type="button" href="javascript:history.go(-1)">retour</a>
+          <p>le candidat :{{candidatur?.stagiaire?.nom}} </p>
+          <p>l'offre de stage : {{candidatur?.offreStage?.titre}}</p>
           <button class="btn btn-primary" (click)="showDialog()">Ajouter</button>
 
         </header>

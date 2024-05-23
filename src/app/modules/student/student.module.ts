@@ -10,6 +10,7 @@ import { SuiviCandidatureComponent } from 'src/app/components/stagiaires/suivi-c
 import { FeedbackComponent } from 'src/app/components/stagiaires/feedback/feedback.component';
 import { PostulerComponent } from 'src/app/components/stagiaires/postuler/postuler.component';
 import { ParcourDeStageComponent } from 'src/app/components/stagiaires/parcour-de-stage/parcour-de-stage.component';
+import { CdkDrag, CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,14 @@ import { ParcourDeStageComponent } from 'src/app/components/stagiaires/parcour-d
     PostulerComponent,
     ParcourDeStageComponent,
   ],
-  imports: [CommonModule, StudentRoutingModule, PrimeNgModule],
+  imports: [
+    CommonModule,
+    StudentRoutingModule,
+    PrimeNgModule,
+    CdkDrag,
+    CdkDropList,
+    DragDropModule,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class StudentModule {}

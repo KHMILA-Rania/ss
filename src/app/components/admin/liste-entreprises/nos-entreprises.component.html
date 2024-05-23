@@ -28,8 +28,8 @@
           <td style="width: 200px">{{ company?.email }}</td>
           <td style="width: 200px">{{ company?.telephone }}</td>
           <td >
-            <button pButton pRipple label="profil" icon="pi pi-user"></button>
-            <p-button pRipple label="supprimer" icon="pi pi-trash" severity="danger" ></p-button>
+            <p-button pRipple label="profil" icon="pi pi-user" (click)="getProfilById(company?._id)"></p-button>
+            <p-button pRipple label="supprimer" icon="pi pi-trash" severity="danger"  (click)="deleteItem(company?._id)" ></p-button>
           </td>
         </tr>
       </ng-template>

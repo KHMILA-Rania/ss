@@ -1,5 +1,4 @@
-<div class="container-fluid">
-    <!-- DataTales Example -->
+<!-- <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Monitoring page</h6>
@@ -16,7 +15,7 @@
                         <div class="tache" id="tache1">Title</div>
                         <div class="tache" id="tache2">Title 2</div>
                         <div class="tache" id="tache3">Title 3</div>
-                        <!-- Ajoutez ici toutes les tâches en attente -->
+                 
                     </div>
                     <div class="fleche-container">
                         <div class="fleche" id="fleche_avant1">&rarr;</div>
@@ -24,7 +23,7 @@
                     </div>
                     <div class="liste" id="en_cours">
                         <h2>Tasks In Progress</h2>
-                        <!-- Ajoutez ici toutes les tâches en cours -->
+               
                     </div>
                     <div class="fleche-container">
                         <div class="fleche" id="fleche_avant2">&rarr; </div>
@@ -32,10 +31,74 @@
                     </div>
                     <div class="liste" id="terminees">
                         <h2>Tasks Done</h2>
-                        <!-- Ajoutez ici toutes les tâches terminées -->
+                      
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+
+
+<!-- <div class="container-fluid">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Monitoring page</h6>
+    </div>
+    <div class="card-body">
+
+      <div class="table-responsive">
+        <header>
+          <a type="button" href="javascript:history.go(-1)">retour</a>
+          <p>le candidat :{{candidatur?.stagiaire?.nom}} </p>
+          <p>l'offre de stage : {{candidatur?.offreStage?.titre}}</p>
+          <button class="btn btn-primary" (click)="showDialog()">Ajouter</button>
+
+        </header>
+        <div class="container"cdkDropListGroup>
+          <div class="liste" id="Todo" 
+          cdkDropList #pendingList="cdkDropList" [cdkDropListData]="pendingTask"
+            [cdkDropListConnectedTo]="[pendingList,progressList,completedList]"
+            (cdkDropListDropped)="drop($event)"
+            >
+            <h2>Pending tasks</h2>
+            <div class="tache row gap-2" cdkDrag  *ngFor="let taskP of pendingTask"  [cdkDragData]="taskP">
+              <span>{{taskP?.title}}</span>
+              <span>{{taskP?.description}}</span>
+              <span>{{taskP?.date}}</span>
+            </div>
+
+          </div>
+          <div class="liste" id="InProgress"cdkDropList #progressList="cdkDropList" [cdkDropListData]="progressTask"
+            [cdkDropListConnectedTo]="[pendingList,progressList,completedList]"
+            (cdkDropListDropped)="drop($event)"
+            >
+            <h2>Current tasks</h2>
+            <div class="tache row gap-2" id="tache1"cdkDrag *ngFor="let taskProg of progressTask" [cdkDragData]="taskProg">
+              <span>{{taskProg?.title}}</span>
+              <span>{{taskProg?.description}}</span>
+              <span>{{taskProg?.date}}</span>
+            </div>
+
+          </div>
+          <div class="liste" id="Done"cdkDropList #completedList="cdkDropList" [cdkDropListData]="completedTask"
+            [cdkDropListConnectedTo]="[pendingList,progressList,completedList]"
+            (cdkDropListDropped)="drop($event)"
+            >
+            <h2>Completed Tasks</h2>
+            <div class="tache row gap-2" id="tache1"cdkDrag *ngFor="let taskC of completedTask" [cdkDragData]="taskC">
+              <span>{{taskC?.title}}</span>
+              <span>{{taskC?.description}}</span>
+              <span>{{taskC?.date}}</span>
+            </div>
+         
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+

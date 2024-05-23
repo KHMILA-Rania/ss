@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { CandidatureService } from 'src/app/services/candidature.service';
 import { TacheService } from 'src/app/services/tache.service';
-
+import {CdkDragDrop, moveItemInArray, transferArrayItem,} from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-suivi-candidature',
   templateUrl: './suivi-candidature.component.html',

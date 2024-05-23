@@ -15,8 +15,8 @@
                 <div
                   class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded"
                 >
-                  <h3 class="h2 text-white mb-0">{{profileDetail?.nom}} {{profileDetail?.prenom}}</h3>
-                  <span class="text-primary">{{profileDetail?.role}}</span>
+                  <h3 class="h2 text-white mb-0">{{currentUser?.nom}} {{profileDetail?.prenom}}</h3>
+                  <span class="text-primary">{{currentUser?.role}}</span>
                 </div>
                 <ul class="list-unstyled mb-1-9">
                   <li class="mb-2 mb-xl-3 display-28">
@@ -35,7 +35,7 @@
                     <span class="display-26 text-secondary me-2 font-weight-600"
                       >date_naissance:</span
                     >
-                    {{profileDetail?.date_naissance}}
+                    {{profileDetail?.date_naissance|date:'shortDate'}}
                   </li>
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
@@ -47,7 +47,7 @@
                     <span class="display-26 text-secondary me-2 font-weight-600"
                       >Email:</span
                     >
-                  {{ profileDetail?.email}}
+                  {{ currentUser?.email}}
                   </li>
                   <li class="display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
@@ -111,10 +111,10 @@
             <label class="font-medium text-900">Prenom</label>
             <input type="text" pInputText formControlName="prenom" />
           </div>
-          <!-- <div class="field mb-4 col-12 md:col-4">
-            <label  class="font-medium text-900">Password</label>
-            <input type="password" pInputText  formControlName="password" />
-          </div> -->
+          <div class="field mb-4 col-12 md:col-4">
+            <label class="font-medium text-900">Carte Cin</label>
+            <input type="number" pInputText formControlName="cin" />
+          </div>
           <div class="field mb-4 col-12 md:col-6">
             <label for="email" class="font-medium text-900">Email</label>
             <input  id="email" type="text" pInputText formControlName="email" [value]="currentUser?.email" />
@@ -151,15 +151,9 @@
           </div>
           <div class="field mb-4 col-12 md:col-6">
             <label for="state" class="font-medium text-900">cv</label>
-            <input id="state" type="text" pInputText formControlName="cv" />
+            <input id="state" type="file" pInputText formControlName="cv" />
           </div>    
-          <!-- <div class="field mb-4 col-12">
-            <label for="website" class="font-medium text-900">website</label>
-            <div class="p-inputgroup">
-              <span class="p-inputgroup-addon">www</span>
-              <input id="website" type="text" pInputText />
-            </div>
-          </div> -->
+
           <div class="col-12">
             <button
               pButton

@@ -6,7 +6,7 @@
 
         <ng-template pTemplate="header">
             <tr>
-                <th>nom de candidats</th>
+                <th>nom de societe </th>
                 <th>titre d'offre</th>
                 <th>datePostulation</th>
                 <th>status du candidature</th>
@@ -20,9 +20,9 @@
                 'bg-yellow-500':item.status == 'en_attente',
                 'bg-red-500':item.status == 'refuser',
             }">
-                <td>{{item?.offrestage?.nom}}</td>
-                <td>{{item.email}}</td>
-                <td>{{item.datePostulation|date:'shortDate'}}</td>
+                <td>{{item?.offreStage?.societe?.nom}}</td>
+                <td>{{item?.offreStage?.titre}}</td>
+                <td>{{item?.datePostulation|date:'shortDate'}}</td>
                 <td >
                     {{item?.status}}
                 </td>

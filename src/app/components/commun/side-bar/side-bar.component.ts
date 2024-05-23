@@ -30,7 +30,7 @@ export class SideBarComponent implements OnInit {
         label: 'Liste de mes offres',
         icon: 'pi pi-fw pi-home',
         command: () => {
-          this.router.navigateByUrl('/dashboard/company/mes-offres');
+          this.router.navigateByUrl('/dashboard/company');
         },
       },
       {
@@ -42,7 +42,7 @@ export class SideBarComponent implements OnInit {
       },
       {
         label: 'Liste des candidatures',
-        icon: 'pi pi-fw pi-user',
+        icon: 'pi pi-fw pi-filter',
         command: () => {
           this.router.navigateByUrl('/dashboard/company/liste-candidatures');
         },
@@ -85,22 +85,22 @@ export class SideBarComponent implements OnInit {
         },
       },
       {
-        label: 'nos Societe',
+        label: 'Creer CV',
         icon: 'pi pi-fw pi-users',
         command: () => {
-          this.router.navigateByUrl('/dashboard/nos-societes');
+          this.router.navigateByUrl('/dashboard/student/cv');
         },
       },
       {
-        label: 'stages sauvegardés',
-        icon: 'pi pi-fw pi-bookmark',
+        label: 'Suivi Candidature',
+        icon: 'pi pi-fw pi-eye',
         command: () => {
-          this.router.navigateByUrl('/dashboard/student/stageSauvgardes');
+          this.router.navigateByUrl('/dashboard/student/SuiviCandidature');
         },
       },
       {
         label: 'Parcours de stage',
-        icon: 'pi pi-fw pi-calendar',
+        icon: 'pi pi-fw pi-server',
         command: () => {
           this.router.navigateByUrl('/dashboard/student/parcoursStage');
         },
@@ -130,39 +130,39 @@ export class SideBarComponent implements OnInit {
       },
       {
         label: 'Liste des stagiaires',
-        icon: 'pi pi-fw pi-pencil',
+        icon: 'pi pi-fw pi-users',
         command: () => {
           this.router.navigateByUrl('/dashboard/admin/liste-stagiaires');
         },
       },
       {
         label: 'Liste des sociétés',
-        icon: 'pi pi-fw pi-file',
+        icon: 'pi pi-fw pi-users',
         command: () => {
           this.router.navigateByUrl('/dashboard/admin/liste-societes');
         },
       },
       {
         label: 'Liste des feedbacks',
-        icon: 'pi pi-fw pi-users',
+        icon: 'pi pi-fw pi-comments',
         command: () => {
           this.router.navigateByUrl('/dashboard/admin/liste-feedbacks');
         },
       },
-      {
-        label: 'Events',
-        icon: 'pi pi-fw pi-calendar',
-        command: () => {
-          this.router.navigateByUrl('/dashboard/admin/');
-        },
-      },
-      {
-        label: 'Profil',
-        icon: 'pi pi-fw pi-id-card',
-        command: () => {
-          this.router.navigateByUrl('/dashboard/admin/profil');
-        },
-      },
+      // {
+      //   label: 'Events',
+      //   icon: 'pi pi-fw pi-calendar',
+      //   command: () => {
+      //     this.router.navigateByUrl('/dashboard/admin/');
+      //   },
+      // },
+      // {
+      //   label: 'Profil',
+      //   icon: 'pi pi-fw pi-id-card',
+      //   command: () => {
+      //     this.router.navigateByUrl('/dashboard/admin/profil');
+      //   },
+      // },
     ];
 
     switch (this.role) {

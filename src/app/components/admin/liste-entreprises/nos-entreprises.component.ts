@@ -26,14 +26,19 @@ export class NosEntreprisesComponent implements OnInit {
       console.log(this.data);
     });
   }
-  deleteItem(id: any, index: any) {
+  deleteItem(id: any) {
     this.userService.deleteUser(id).subscribe((res: any) => {
+      console.log(res.status)
       Swal.fire({
         title: 'succes!',
         text: 'Profile deleted',
         icon: 'success',
       });
-      this.data.splice(index, 1);
     });
+  }
+  getProfilById(id:any){
+    this.userService.getOne(id).subscribe((res:any)=>{
+      console.log(res.data)
+      })
   }
 }
