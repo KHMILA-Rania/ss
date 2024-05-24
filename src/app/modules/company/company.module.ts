@@ -10,6 +10,7 @@ import { PublierComponent } from 'src/app/components/entreprise/publier/publier.
 import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches/liste-taches.component';
 import { CdkDrag, CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
 import { DetailOffreComponent } from 'src/app/components/entreprise/detail-offre/detail-offre.component';
+import { ListeCandidatureAccepteComponent } from 'src/app/components/entreprise/liste-candidature-accepte/liste-candidature-accepte.component';
 
 
 @NgModule({
@@ -20,8 +21,8 @@ import { DetailOffreComponent } from 'src/app/components/entreprise/detail-offre
     ListeCandidaturesComponent,
     PublierComponent,
     ListeTachesComponent,
-    DetailOffreComponent
-    
+    DetailOffreComponent,
+    ListeCandidatureAccepteComponent,
   ],
   imports: [
     CommonModule, 

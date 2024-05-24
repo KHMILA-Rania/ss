@@ -14,7 +14,7 @@ import { MessageService } from 'primeng/api';
 import { ListeEvenementsComponent } from './components/admin/liste-evenements/liste-evenements.component';
 
 @NgModule({
-  declarations: [AppComponent, ListeEvenementsComponent,  ],
+  declarations: [AppComponent, ListeEvenementsComponent,   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

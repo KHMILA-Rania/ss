@@ -14,26 +14,6 @@ import { PostulerService } from 'src/app/services/postuler.service';
 export class ListeCandidaturesComponent implements OnInit {
   data: any;
   currentIdUser:any;
-  actions: MenuItem[] = [
-    {
-      label: 'accepter',
-      command: () => {
-        this.accepter(this.data?.item?.stagiaire?._idtthis);
-        console.log('accepter');
-      },
-    },
-    {
-      label: 'refuser',
-    },
-    {
-      label: 'tâches',
-      command: () => {
-        this.router.navigateByUrl(
-          '/dashboard/company/liste-taches/' + this.selectedCandidat._id
-        );
-      },
-    },
-  ];
 
   selectedCandidat: any;
 
@@ -59,13 +39,13 @@ export class ListeCandidaturesComponent implements OnInit {
     this.getAllPostulations();
   }
 
-  save(severity: string) {
-    this.messageService.add({
-      severity: severity,
-      summary: 'Success',
-      detail: 'Candidature accepté',
-    });
-  }
+  // save(severity: string) {
+  //   this.messageService.add({
+  //     severity: severity,
+  //     summary: 'Success',
+  //     detail: 'Candidature accepté',
+  //   });
+  // }
 
   refuser(id: any) {
     this.candidatureService.refuserCandidature(id).subscribe((res: any) => {

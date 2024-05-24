@@ -20,7 +20,6 @@ export class ListeTachesComponent implements OnInit {
   currentUserId:any
   candidaId:any
   candidature:any
-  candidatur:any;
   pendingTask: any[] = []
   progressTask: any[] = []
   completedTask: any[] = []
@@ -34,7 +33,7 @@ export class ListeTachesComponent implements OnInit {
     private candidatureService:CandidatureService,
     private taskService:TacheService,
     private authService:AuthService,
-    private serviceUser : UserService
+
   )
   {
     this.addForm = new FormGroup({
@@ -47,7 +46,7 @@ export class ListeTachesComponent implements OnInit {
       console.log(this.candidaId)
     })
     this.currentUserId = this.authService.getUserId()
-    this.candidatur = this.candidatureService.getCandidature(this.candidaId)
+
     
     
   }
@@ -59,7 +58,7 @@ export class ListeTachesComponent implements OnInit {
       console.log(res)
       this.getTasks(this.candidature?._id)
     })
-
+    
   }
 
   submit() {

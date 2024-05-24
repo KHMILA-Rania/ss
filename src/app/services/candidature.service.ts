@@ -49,6 +49,9 @@ export class CandidatureService {
   accepted() {
     return this.http.get(`${this.apiURL}/candidatures/accepted`);
   }
+
+
+  
   acceptedById(id: any) {
     return this.http.get(`${this.apiURL}/candidatures/accepted/${id}`);
   }

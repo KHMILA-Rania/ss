@@ -9,9 +9,9 @@
       <div class="table-responsive">
         <header>
           <a type="button" href="javascript:history.go(-1)">retour</a>
-          <p>le candidat :{{candidatur?.stagiaire?.nom}} </p>
-          <p>l'offre de stage : {{candidatur?.offreStage?.titre}}</p>
-          <button class="btn btn-primary" (click)="showDialog()">Ajouter</button>
+          <p>le candidat :{{candidature?.stagiaire?.nom}} </p>
+          <p>l'offre de stage : {{candidature?.offreStage?.titre}}</p>
+          <button class="btn btn-primary" (click)="showDialog()">Ajouter tâche</button>
 
         </header>
         <div class="container"cdkDropListGroup>
@@ -20,11 +20,11 @@
             [cdkDropListConnectedTo]="[pendingList,progressList,completedList]"
             (cdkDropListDropped)="drop($event)"
             >
-            <h2>Pending tasks</h2>
+            <h2>Les tâches en attente</h2>
             <div class="tache row gap-2" cdkDrag  *ngFor="let taskP of pendingTask"  [cdkDragData]="taskP">
               <span>{{taskP?.title}}</span>
               <span>{{taskP?.description}}</span>
-              <span>{{taskP?.date | date : "shortDate" }}</span>
+              <span>{{taskP?.date | date }}</span>
             </div>
 
           </div>
@@ -32,11 +32,11 @@
             [cdkDropListConnectedTo]="[pendingList,progressList,completedList]"
             (cdkDropListDropped)="drop($event)"
             >
-            <h2>Current tasks</h2>
+            <h2>Les tâches en cours</h2>
             <div class="tache row gap-2" id="tache1"cdkDrag *ngFor="let taskProg of progressTask" [cdkDragData]="taskProg">
               <span>{{taskProg?.title}}</span>
               <span>{{taskProg?.description}}</span>
-              <span>{{taskProg?.date | date : "shortDate" }}</span>
+              <span>{{taskProg?.date | date  }}</span>
             </div>
 
           </div>
@@ -44,11 +44,11 @@
             [cdkDropListConnectedTo]="[pendingList,progressList,completedList]"
             (cdkDropListDropped)="drop($event)"
             >
-            <h2>Completed Tasks</h2>
+            <h2>Les tâches terminées</h2>
             <div class="tache row gap-2" id="tache1"cdkDrag *ngFor="let taskC of completedTask" [cdkDragData]="taskC">
               <span>{{taskC?.title}}</span>
               <span>{{taskC?.description}}</span>
-              <span>{{taskC?.date | date : "shortDate" }}</span>
+              <span>{{taskC?.date | date  }}</span>
             </div>
          
           </div>

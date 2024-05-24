@@ -7,6 +7,7 @@ import { ListeCandidaturesComponent } from 'src/app/components/entreprise/liste-
 import { PublierComponent } from 'src/app/components/entreprise/publier/publier.component';
 import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches/liste-taches.component';
 import { DetailOffreComponent } from 'src/app/components/entreprise/detail-offre/detail-offre.component';
+import { ListeCandidatureAccepteComponent } from 'src/app/components/entreprise/liste-candidature-accepte/liste-candidature-accepte.component';
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'liste-candidatures',
     component: ListeCandidaturesComponent,
+  },
+  {
+    path: 'liste-candidatures-accepte',
+    component: ListeCandidatureAccepteComponent,
   },
   {
     path: 'liste-taches/:id',
