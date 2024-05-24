@@ -5,10 +5,15 @@ import { NosEntreprisesComponent } from 'src/app/components/admin/liste-entrepri
 import { NosStagiairesComponent } from 'src/app/components/admin/liste-stagiaires/nos-stagiaires.component';
 import { AcceuilAdminComponent } from 'src/app/components/admin/acceuil-admin/acceuil-admin.component';
 import { ProfilComponent } from 'src/app/components/admin/profil/profil.component';
+import { DashboardComponent } from 'src/app/components/admin/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: '',
     component: AcceuilAdminComponent,
+  },
+  {
+    path:'dashboard',
+    component: DashboardComponent
   },
   {
     path: 'liste-stagiaires',

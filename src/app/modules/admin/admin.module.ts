@@ -7,6 +7,7 @@ import { NosEntreprisesComponent } from 'src/app/components/admin/liste-entrepri
 import { NosStagiairesComponent } from 'src/app/components/admin/liste-stagiaires/nos-stagiaires.component';
 import { ListeFeedbacksComponent } from 'src/app/components/admin/liste-feedbacks/liste-feedbacks.component';
 import { ProfilComponent } from 'src/app/components/admin/profil/profil.component';
+import { DashboardComponent } from 'src/app/components/admin/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ProfilComponent } from 'src/app/components/admin/profil/profil.componen
     NosEntreprisesComponent,
     NosStagiairesComponent,
     ProfilComponent,
+    DashboardComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, PrimeNgModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
