@@ -46,9 +46,7 @@ export class AuthService {
               break;
             }
           }
-          
         } else {
-          
           alert('Une erreur est survenue lors de la connexion');
         }
       },
@@ -100,19 +98,22 @@ export class AuthService {
     console.log(decodedToken, token);
     return decodedToken?.role;
   }
+  getUserIdByToken(token:any) {
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    console.log(decodedToken);
+    return decodedToken?.userId;
+  }
   forgotPassword(email: string): Observable<void> {
     return this.http.post<void>(`${this.apiURL}/auth/forgotPassword`, {
       email,
     });
   }
-  resetPassword(data: any) {
-    return this.http.put(
-      `${this.apiURL}/auth/resetPassword/${data.token}`,
-      data
-    );
+  resetPassword(id: any, data: any) {
+    return this.http.put(`${this.apiURL}/auth/resetPassword/${id}`, data);
   }
-  modifierPassword(data: any) {
-    return this.http.patch(`${this.apiURL}/auth/modifierPassword`, data);
+  modifierPassword(id: any, data: any) {
+    return this.http.put(`${this.apiURL}/auth/modifierPassword/${id}`, data);
   }
 
   private setSession(authResult: any) {

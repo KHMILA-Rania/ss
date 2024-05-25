@@ -74,25 +74,11 @@ export class ProfilSocieteComponent {
   // getProfils() {
   //   this.profilS.getProfils().subscribe((res) => console.log(res));
   // }
-  getById(id: number) {
+  getById(id: any) {
     this.profilS.getById(id).subscribe((res) => console.log(res));
   }
 
-  // async deleteProfil(id: number) {
-  //   if (window.confirm('Voulez vous supprimer cette profil ?')) {
-  //     try {
-  //       await this.profilS.deleteProfil(id);
-  //       alert('La suppression de profil a bien eu lieu');
-  //     } catch (error) {
-  //       console.error(
-  //         "Une erreur s'est produite lors de la suppression de profil:",
-  //         error
-  //       );
-  //     }
-  //   }
-  // }
-
-  // updateProfil(id: number, data: any) {
+  // updateProfil(id: any, data: any) {
   //   this.profilS.updateProfil(id, data).subscribe(
   //     (res) => {
   //       console.log(res);
@@ -104,10 +90,12 @@ export class ProfilSocieteComponent {
   //   );
   // }
 
-  // modifierPassword(id: any, data: any) {
-  //   this.authservice.modifierPassword(data).subscribe((res) => {
-  //     console.log('mot de passe modifiée');
-  //   });
-  // }
+  modifierPassword() {
+    let data = this.addFormP.getRawValue();
+    const id = this.authservice.getUserId();
+    this.authservice.modifierPassword(id, data).subscribe((res) => {
+      console.log('mot de passe modifiée');
+    });
+  }
 }
 

@@ -15,64 +15,159 @@
                 <div
                   class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded"
                 >
-                  <h3 class="h2 text-white mb-0">{{currentUser?.nom}} {{profileDetail?.prenom}}</h3>
-                  <span class="text-primary">{{currentUser?.role}}</span>
+                  <h3 class="h2 text-white mb-0">
+                    {{ currentUser?.nom }} {{ profileDetail?.prenom }}
+                  </h3>
+                  <span class="text-primary">{{ currentUser?.role }}</span>
                 </div>
                 <ul class="list-unstyled mb-1-9">
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
                       >adresse:</span
                     >
-                    {{profileDetail?.adresse}}
+                    {{ profileDetail?.adresse }}
                   </li>
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
                       >sexe:</span
                     >
-                    {{profileDetail?.sexe}}
+                    {{ profileDetail?.sexe }}
                   </li>
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
                       >date_naissance:</span
                     >
-                    {{profileDetail?.date_naissance|date:'shortDate'}}
+                    {{ profileDetail?.date_naissance | date }}
                   </li>
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
-                      >cin:</span
+                      >cin:{{ profileDetail?.cin }}</span
                     >
-                    {{profileDetail?.cin}}
+                    {{ profileDetail?.cin }}
                   </li>
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
                       >Email:</span
                     >
-                  {{ currentUser?.email}}
+                    {{ currentUser?.email }}
                   </li>
                   <li class="display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
                       >Telephone:</span
                     >
-                    {{profileDetail?.telephone}}
+                    {{ profileDetail?.telephone }}
                   </li>
                   <li class="display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
                       >CV:</span
                     >
-                    {{profileDetail?.CV}}
+                    {{ profileDetail?.CV }}
                   </li>
-                  
                 </ul>
               </div>
             </div>
-            <div class="row justify-content-end">
+            <div class="flex row justify-content-between">
               <button
                 pButton
                 pRipple
                 type="button"
-                label="Modifier"
+                label="Modifier profil"
                 class="p-button-outlined p-button-info col-3"
               ></button>
+              <button
+                pButton
+                pRipple
+                type="button"
+                label="Modifier Mot de passe"
+                class="p-button-outlined p-button-info col-3"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                (click)="modifierPassword()"
+              ></button>
+
+              <div>
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">modifier le mot de passe</button> -->
+
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="staticBackdrop"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="staticBackdropLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5">
+                          modifier votre mot de passe ?
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <form [formGroup]="addFormP" method="post">
+                          <div class="mb-3">
+                            <label class="form-label"
+                              >ancien mot de passe :</label
+                            >
+                            <input
+                              type="password"
+                              class="form-control"
+                              placeholder="****"
+                              formControlName="ancienMotDePasse"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label"
+                              >nouveau mot de passe :</label
+                            >
+                            <input
+                              type="password"
+                              class="form-control"
+                              placeholder="****"
+                              formControlName="nouveauMotDePasse"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label"
+                              >repeter mot de passe :</label
+                            >
+                            <input
+                              type="password"
+                              class="form-control"
+                              placeholder="****"
+                              formControlName="repMotDePasse"
+                            />
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Retour
+                        </button>
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                          formmethod="post"
+                        >
+                          modifier
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -81,8 +176,10 @@
   </div>
 </section>
 
-<div class="card" >
-  <span class="text-900 text-xl font-bold mb-4 block">Modifier votre profile </span>
+<div class="card">
+  <span class="text-900 text-xl font-bold mb-4 block"
+    >Modifier votre profile
+  </span>
   <div class="grid">
     <div class="col-12 lg:col-10">
       <form
@@ -92,8 +189,13 @@
         <div class="grid formgrid p-fluid">
           <div class="field mb-4 col-12 md:col-4">
             <label for="nom" class="font-medium text-900">Nom </label>
-            <input id="nom" type="text" pInputText formControlName="nom" [value]="currentUser?.nom" />
-
+            <input
+              id="nom"
+              type="text"
+              pInputText
+              formControlName="nom"
+              [value]="currentUser?.nom"
+            />
           </div>
           <!-- <div class="field mb-4 col-12">
             <label for="avatar" class="font-medium text-900">Avatar</label>
@@ -117,26 +219,45 @@
           </div>
           <div class="field mb-4 col-12 md:col-6">
             <label for="email" class="font-medium text-900">Email</label>
-            <input  id="email" type="text" pInputText formControlName="email" [value]="currentUser?.email" />
+            <input
+              id="email"
+              type="text"
+              pInputText
+              formControlName="email"
+              [value]="currentUser?.email"
+            />
           </div>
 
           <div class="field mb-4 col-12 md:col-6">
             <label for="city" class="font-medium text-900">Telephone</label>
-            <input id="city" type="text" pInputText formControlName="telephone" [value]="currentUser?.telephone"  />
+            <input
+              id="city"
+              type="text"
+              pInputText
+              formControlName="telephone"
+              [value]="currentUser?.telephone"
+            />
           </div>
-          
+
           <div class="field mb-4 col-12 md:col-6">
-            <label for="city" class="font-medium text-900">Date naissance</label>
-            <input id="city" type="date" pInputText formControlName="date_naissance"/>
+            <label for="city" class="font-medium text-900"
+              >Date naissance</label
+            >
+            <input
+              id="city"
+              type="date"
+              pInputText
+              formControlName="date_naissance"
+            />
           </div>
-           <div class="field mb-4 col-12 md:col-6">
-        <label class="font-medium text-900 ">sexe</label>
-        <select class="form-select" formControlName="sexe">
-          <option selected>sexe</option>
-          <option value="homme">homme</option>
-          <option value="femme">femme</option>
-        </select>
-      </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label class="font-medium text-900">sexe</label>
+            <select class="form-select" formControlName="sexe">
+              <option selected>sexe</option>
+              <option value="homme">homme</option>
+              <option value="femme">femme</option>
+            </select>
+          </div>
           <div class="field mb-4 col-12 md:col-4">
             <label for="city" class="font-medium text-900">Adresse</label>
             <input id="city" type="text" pInputText formControlName="adresse" />
@@ -146,13 +267,20 @@
             <input id="state" type="text" pInputText />
           </div>
           <div class="field mb-4 col-12 md:col-6">
-            <label for="state" class="font-medium text-900">etablissement</label>
-            <input id="state" type="text" pInputText formControlName="etablissement" />
+            <label for="state" class="font-medium text-900"
+              >etablissement</label
+            >
+            <input
+              id="state"
+              type="text"
+              pInputText
+              formControlName="etablissement"
+            />
           </div>
           <div class="field mb-4 col-12 md:col-6">
             <label for="state" class="font-medium text-900">cv</label>
             <input id="state" type="file" pInputText formControlName="cv" />
-          </div>    
+          </div>
 
           <div class="col-12">
             <button

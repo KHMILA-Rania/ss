@@ -24,9 +24,9 @@
         <div class="card col-4 " *ngFor="let item of data" >
             <div class="card-body contener" >
                 <h5 class="card-title">{{item.titre}}</h5>
-                <p class="card-text">Lieux : {{item.lieux}}</p>
+                <p class="card-text">Lieux : {{item.lieu}}</p>
                 <p class="card-text">{{item.description}}</p>
-                <p class="user-fix"> {{item.user}}</p>
+                
                 <p class="card-text">expired le {{item.date_dexpiration|date:'shortDate'}}</p>
                 <p class="date-fix"><small class="text-muted">Le {{item.date|date:'shortDate' }}</small></p>
             </div>

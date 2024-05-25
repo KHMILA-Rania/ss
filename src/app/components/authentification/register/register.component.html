@@ -1,25 +1,37 @@
-<div class="container-fluid flex row mt-5 align-items-center justify-content-center">
+<div
+  class="container-fluid flex row mt-5 align-items-center justify-content-center"
+>
   <div class="card col-6 p-5 align-items-center justify-content-center gap-2">
     <h1>Inscription</h1>
-    <form class="gap-2 d-flex row justify-content-between" [formGroup]="addForm">
-
+    <form
+      class="gap-2 d-flex row justify-content-between"
+      [formGroup]="addForm"
+    >
       <div class="row">
-        <div class="col-md-6 ">
+        <div class="col-md-6">
           <div class="form-outline">
             <label class="form-label">Nom</label>
-            <input type="text" class="form-control form-control" formControlName="nom" />
+            <input
+              type="text"
+              class="form-control form-control"
+              formControlName="nom"
+            />
           </div>
         </div>
-        <div class="col-md-6 ">
+        <div class="col-md-6">
           <div class="form-outline">
             <label class="form-label">Email</label>
-            <input type="email" class="form-control form-control" formControlName="email" />
+            <input
+              type="email"
+              class="form-control form-control"
+              formControlName="email"
+            />
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <h6 class="mb-2 pb-1">Role: </h6>
+          <h6 class="mb-2 pb-1">Role:</h6>
           <select class="select form-control" formControlName="role">
             <option selected value="stagiaire">stagiaire</option>
             <option value="societe">societe</option>
@@ -29,7 +41,11 @@
         <div class="col-md-6">
           <div class="form-outline">
             <label class="form-label">Téléphone</label>
-            <input type="tel" class="form-control form-control" formControlName="telephone" />
+            <input
+              type="tel"
+              class="form-control form-control"
+              formControlName="telephone"
+            />
           </div>
         </div>
       </div>
@@ -37,25 +53,102 @@
         <div class="col-md-6">
           <div class="form-outline">
             <label class="form-label">password</label>
-            <input type="password" class="form-control form-control" formControlName="password" />
+            <input
+              type="password"
+              class="form-control form-control"
+              formControlName="password"
+            />
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-outline">
             <label class="form-label">confirm password</label>
-            <input type="password" class="form-control form-control" formControlName="rep_password" />
+            <input
+              type="password"
+              class="form-control form-control"
+              formControlName="rep_password"
+            />
           </div>
         </div>
       </div>
 
-
       <div class="d-flex justify-content-center align-items-center mt-3">
-        <button type="submit" (click)="register()" class="btn btn-primary btn-lg">s'inscrire</button>
+        <button
+          type="submit"
+          (click)="register()"
+          class="btn btn-primary btn-lg"
+        >
+          s'inscrire
+        </button>
       </div>
       <div>
-        <p class="text-center text-muted mt-5 mb-0">Avez-vous déjà un compte ? <a href="/auth"
-            class="fw-bold text-body" redirectTo="app-register"><u>connectez-vous</u></a> ici</p>
+        <p class="text-center text-muted mt-5 mb-0">
+          Avez-vous déjà un compte ?
+          <a href="/auth" class="fw-bold text-body" redirectTo="app-register"
+            ><u>connectez-vous</u></a
+          >
+          ici
+        </p>
       </div>
     </form>
   </div>
 </div>
+
+<body>
+  <div class="ring">
+    <i style="--clr: #00ff0a"></i>
+    <i style="--clr: #ff0057"></i>
+    <i style="--clr: #fffd44"></i>
+    <div class="login" [formGroup]="addForm">
+      <h2>inscription</h2>
+      <span class="error animated tada" id="msg"></span>
+      <div class="inputBx">
+        <input type="text" placeholder="nom" formControlName="nom" />
+      </div>
+      <div class="inputBx">
+        <input type="email" placeholder="email" formControlName="email" />
+      </div>
+      <div class="inputBx">
+        <input
+          type="text"
+          placeholder="Téléphone"
+          formControlName="telephone"
+        />
+      </div>
+      <div class="inputBx">
+        <select class="select" formControlName="role">
+          <option selected value="stagiaire">stagiaire</option>
+          <option value="societe">societe</option>
+          <option value="admin">admin</option>
+        </select>
+      </div>
+      <div class="inputBx">
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <div class="inputBx">
+        <input
+          type="password"
+          placeholder="confirm password"
+          formControlName="rep_password"
+        />
+      </div>
+      <div class="inputBx">
+        <input type="submit" (click)="register()" value="Se Connecter" />
+      </div>
+      <div class="links">
+        <p>
+          Avez-vous déjà inscrit?
+          <a href="/auth"  redirectTo="app-register"
+            ><u>connectez-vous</u></a
+          >
+
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+<!--ring div ends here-->

@@ -113,8 +113,10 @@ export class ProfilComponent implements OnInit {
     );
   }
 
-  modifierPassword(id: any, data: any) {
-    this.authservice.modifierPassword(data).subscribe((res) => {
+  modifierPassword() {
+    let data = this.addFormP.getRawValue();
+    const id = this.authservice.getUserId();
+    this.authservice.modifierPassword(id, data).subscribe((res) => {
       console.log('mot de passe modifiée');
     });
   }
