@@ -19,7 +19,6 @@ export class MesCandidaturesComponent implements OnInit {
     this.candidatureService.getAllMesCandidatures(id)
       .subscribe((res: any) => {
         this.data = res.data
-        console.log(this.data)
       });
    
   }
@@ -29,6 +28,7 @@ export class MesCandidaturesComponent implements OnInit {
   supprimer(id:any){
     this.candidatureService.deleteCandidature(id).subscribe((res:any)=>{
       console.log(res)
+      window.location.reload();
     })
   }
 

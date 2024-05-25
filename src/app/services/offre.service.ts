@@ -3,35 +3,35 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OffreService {
-  apiURL=environment.apiURL
-  constructor(private http :HttpClient) {
-   }
-  
-  createOffre(data:any){
-    return this.http.post(`${this.apiURL}/offre/publierOffre`,data)
-  };
+  apiURL = environment.apiURL;
+  constructor(private http: HttpClient) {}
 
-  getAllOffre(){
+  createOffre(data: any) {
+    return this.http.post(`${this.apiURL}/offre/publierOffre`, data);
+  }
+
+  getAllOffre() {
     return this.http.get(`${this.apiURL}/offre/getAllOffres`);
-  };
-  getOffreById(id:number){
+  }
+  getOffreById(id: number) {
     return this.http.get(`${this.apiURL}/offre/getOneOffre/${id}`);
-  };
+  }
 
-  updateOffre(id:number, data:any){
-    return this.http.put(`${this.apiURL}/offre/modifierOffre/${id}`, data)
-  };
+  updateOffre(id: number, data: any) {
+    return this.http.put(`${this.apiURL}/offre/modifierOffre/${id}`, data);
+  }
 
-   deleteOffre(id: number) {
-    return this.http.delete(`${this.apiURL}/offre/supprimerOffre/${id}`)
-  };
+  deleteOffre(id: number) {
+    return this.http.delete(`${this.apiURL}/offre/supprimerOffre/${id}`);
+  }
+  deleteAllOffers(id:any){
+    return this.http.delete(`${this.apiURL}/offre/deleteAllOffers/${id}`);
+  }
 
-
-  getOffresByidSociete(id:any){
+  getOffresByidSociete(id: any) {
     return this.http.get(`${this.apiURL}/offre/getAllMesOffres/${id}`);
   }
-     
 }

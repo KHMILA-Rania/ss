@@ -14,7 +14,7 @@ export class NosStagiairesComponent implements OnInit {
   constructor(
     private service: ProfilService,
     private serviceUser: UserService,
-    private router : Router
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.getAllStagiaires();
@@ -27,10 +27,14 @@ export class NosStagiairesComponent implements OnInit {
   deleteItem(id: any) {
     this.serviceUser.deleteUser(id).subscribe((res: any) => {
       if (res) {
-        Swal.fire('Suppression', 'Suppression effectué avec succès', 'success');
-        this.router.navigateByUrl('/dashboard/admin/liste-stagiaires');
-      }
-    });
+      window.location.reload();
+      Swal.fire({
+        title: 'succes!',
+        text: 'Profile deleted',
+        icon: 'success',
+      });
+    };
+    })
   }
   getProfilById(id: any) {
     this.serviceUser.getOne(id).subscribe((res: any) => {

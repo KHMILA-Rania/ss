@@ -51,7 +51,7 @@ export class PostulerComponent implements OnInit {
       this.addForm.patchValue(this.postDetail)
     })
     this.service.getOffreById(this.idPost).subscribe((res) => {
-      console.log(res);
+      
       this.data = res;
     });
   }
@@ -70,6 +70,7 @@ export class PostulerComponent implements OnInit {
       this.candidatureService.create(formData).subscribe((res) => {
         alert("L'offre a été postulé avec succès");
         console.log(formData);
+        window.location.reload();
       });
     } else {
       console.log('Veuillez vérifier les champs');

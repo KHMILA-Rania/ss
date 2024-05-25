@@ -59,7 +59,7 @@ export class DetailOffreComponent implements OnInit {
     });
   }
   deleteOffre(id: any) {
-    this.service.deleteOffre(this.idPost).subscribe((res) => {
+    this.service.deleteOffre(id).subscribe((res) => {
       console.log(res);
     });
     this.router.navigateByUrl('/dashboard/company');
