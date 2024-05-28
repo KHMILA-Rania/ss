@@ -9,6 +9,7 @@ import { OffreService } from 'src/app/services/offre.service';
   styleUrls: ['./acceuil.component.scss'],
 })
 export class AcceuilComponent {
+  searchTerm:any
   items: MenuItem[] = [
     {
       label: 'Domaines',
@@ -86,6 +87,7 @@ export class AcceuilComponent {
   ) {}
 
   ngOnInit() {
+   
     this.getAllOffres();
   }
   getAllOffres() {
@@ -94,11 +96,12 @@ export class AcceuilComponent {
     });
   }
   getOffreById(id: any) {
+  
     this.route.navigateByUrl(`/dashboard/student/offre/${id}`);
 
-    this.OffreService.getOffreById(id).subscribe((data) => {
-      this.data = Object.values(data);
-    });
+    // this.OffreService.getOffreById(id).subscribe((data) => {
+    //   this.data = Object.values(data);
+    // });
   }
 
   update() {

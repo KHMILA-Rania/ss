@@ -1,0 +1,60 @@
+
+
+
+<div class="row">
+  <div class="col-2">
+    <p-toast></p-toast>
+    <p-menu [model]="items" [style]="{ width: '100%' }">
+      <ng-template pTemplate="item" let-item>
+        <a class="p-menuitem-link">
+          <div>
+            <span> {{ item.label }}</span>
+          </div>
+        </a>
+      </ng-template>
+    </p-menu>
+  </div>
+  <div class="col-10">
+   <div class="row" style="padding: 30px;">
+    <div class="card p-input-icon-left">
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-search"></i></span>
+        <input type="text" class="form-control" placeholder="Search ..." aria-label="Username" aria-describedby="addon-wrapping">
+      </div>
+    </div>
+    <div class="card col-4"  *ngFor="let item of offres" style="margin-left: 10px;">
+      <div class="card-body contener">
+        <h5 class="card-title">{{ item.titre }}</h5>
+        <p class="card-text">Lieux : {{ item.lieu }}</p>
+        <p class="card-text">{{ item.description }}</p>
+        <p class="user-fix">
+          <small class="text-muted"> Par {{ item.societe.nom }}</small>
+        </p>
+        <p class="card-text"><i class="bi bi-calendar"></i> Expired le {{ item.date_dexpiration | date : "yyyy-MM-dd HH:mm" }}</p>
+        <p class="date-fix">
+          <small class="text-muted"><i class="bi bi-calendar"></i> Le {{ item.date | date : "yyyy-MM-dd HH:mm" }}</small>
+        </p>
+      </div>
+      <div class="col-12 flex row align-content-end champ">
+        <div class="flex row align-items-center justify-content-start">
+          <p-badge
+            [value]="item.number_candidats"
+         
+            severity="success"
+            class="col-1"
+          >
+          </p-badge
+          ><span class="col-6" style="margin-left: 10px;">candidat(s)</span>
+        </div>
+        <button
+          
+          class="btn btn-primary "
+          (click)="getOffreById(item._id)"
+        >
+        <i class="bi bi-eye"></i> Voir plus
+        </button>
+      </div>
+    </div>
+   </div>
+  </div>
+</div>

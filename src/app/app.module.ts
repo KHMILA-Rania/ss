@@ -12,9 +12,11 @@ import {StyleClassModule} from 'primeng/styleclass';
 import { PrimeNgModule } from './modules/shared/shared.module';
 import { MessageService } from 'primeng/api';
 import { ListeEvenementsComponent } from './components/admin/liste-evenements/liste-evenements.component';
+import { DetailsProfilComponent } from './components/entreprise/details-profil/details-profil.component';
+
 
 @NgModule({
-  declarations: [AppComponent, ListeEvenementsComponent,   ],
+  declarations: [AppComponent, ListeEvenementsComponent, DetailsProfilComponent,   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

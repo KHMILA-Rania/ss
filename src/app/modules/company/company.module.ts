@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AcceuilComponent } from 'src/app/pages/acceuilCompany/acceuil.component';
+
 import { CompanyRoutingModule } from './company-routing.module';
 import { PrimeNgModule } from '../shared/shared.module';
 import { MesOffresComponent } from 'src/app/components/entreprise/mes-offres/mes-offres.component';
@@ -11,18 +11,20 @@ import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches
 import { CdkDrag, CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
 import { DetailOffreComponent } from 'src/app/components/entreprise/detail-offre/detail-offre.component';
 import { ListeCandidatureAccepteComponent } from 'src/app/components/entreprise/liste-candidature-accepte/liste-candidature-accepte.component';
-
+import { AcceuilComponent } from 'src/app/pages/acceuilCompany/acceuil.component';
+ 
 
 @NgModule({
   declarations: [
     MesOffresComponent,
+   
     ProfilSocieteComponent,
-    AcceuilComponent,
     ListeCandidaturesComponent,
     PublierComponent,
     ListeTachesComponent,
     DetailOffreComponent,
     ListeCandidatureAccepteComponent,
+    AcceuilComponent
   ],
   imports: [
     CommonModule, 

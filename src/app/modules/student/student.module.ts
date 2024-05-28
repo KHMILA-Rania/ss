@@ -11,7 +11,7 @@ import { FeedbackComponent } from 'src/app/components/stagiaires/feedback/feedba
 import { PostulerComponent } from 'src/app/components/stagiaires/postuler/postuler.component';
 import { ParcourDeStageComponent } from 'src/app/components/stagiaires/parcour-de-stage/parcour-de-stage.component';
 import { CdkDrag, CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
-
+import { InputTextModule } from 'primeng/inputtext';
 @NgModule({
   declarations: [
     AcceuilComponent,
@@ -22,6 +22,7 @@ import { CdkDrag, CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
     FeedbackComponent,
     PostulerComponent,
     ParcourDeStageComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -30,6 +31,7 @@ import { CdkDrag, CdkDropList, DragDropModule } from '@angular/cdk/drag-drop';
     CdkDrag,
     CdkDropList,
     DragDropModule,
+    InputTextModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

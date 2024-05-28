@@ -1,33 +1,11 @@
-.card {
-    height: 100% !important;
-}
-
-.p-input-icon-left{
-    width: 40% !important;
-}
-
-.champ{
+.container-fluid{
+    background-image: url("https://img.freepik.com/photos-gratuite/fond-elegant-vide-espace-copie_24972-1807.jpg?t=st=1716902951~exp=1716906551~hmac=6ac6c57569a76672f73cc31e6406d2070355bc6d2841eaccd710f7b38eedadcf&w=996");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
     position: relative;
-    button{
-        position: absolute;
-        bottom: -25px;
-        right: 5px;
-        box-shadow: 2px 3px 2px rgb(167, 167, 167) ;
-    }
-  
+ 
+    z-index: -1;
+    
+   
 }
-
-.contener{
-    position: relative;
-    .date-fix{
-        position: absolute !important;
-        right: 15px;
-        top: 5px;
-    }
-    .user-fix{
-        position: absolute !important;
-        right: 15px;
-        top: 30px;
-    }
-}
-
