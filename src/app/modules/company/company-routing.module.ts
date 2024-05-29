@@ -8,10 +8,15 @@ import { PublierComponent } from 'src/app/components/entreprise/publier/publier.
 import { ListeTachesComponent } from 'src/app/components/entreprise/liste-taches/liste-taches.component';
 import { DetailOffreComponent } from 'src/app/components/entreprise/detail-offre/detail-offre.component';
 import { ListeCandidatureAccepteComponent } from 'src/app/components/entreprise/liste-candidature-accepte/liste-candidature-accepte.component';
+import { DetailsProfilComponent } from 'src/app/components/entreprise/details-profil/details-profil.component';
 const routes: Routes = [
   {
     path: '',
     component: AcceuilComponent,
+  },
+  {
+    path:'details-profil',
+    component:DetailsProfilComponent
   },
 
   {

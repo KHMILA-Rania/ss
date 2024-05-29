@@ -1,47 +1,42 @@
-<section class="bg-light">
+<section class=" m-0 p-0 ">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 mb-4 mb-sm-5">
-        <div class="card card-style1 border-0">
+      <div class="">
+        <div class="card1 card-style1 border-0">
           <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
-            <div class="row align-items-center">
-              <div class="col-lg-6 mb-4 mb-lg-0">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                  alt="..."
-                />
-              </div>
-              <div class="col-lg-6 px-xl-10">
-                <div
-                  class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded"
-                >
-                  <h3 class="h2 text-white mb-0">
-                    {{ currentUser?.nom }} {{ profileDetail?.prenom }}
-                  </h3>
-                  <span class="text-primary">{{ currentUser?.role }}</span>
-                </div>
-                <ul class="list-unstyled mb-1-9">
+            <div class="col-10  row align-items-center">
+              
+              <div class="col-lg-10 px-xl-10 card" >
+               
+                <ul class="list-unstyled mb-1-9" style="justify-content: center; margin-left:5%">
+                  <li class="mb-2 mb-xl-3 display-28">
+                    <h3 class="h2  mb-0" id="test">
+                      {{ currentUser?.nom }} {{ profileDetail?.prenom }}
+                    </h3>
+                    <span class="text-primary">{{ currentUser?.role }}</span>
+
+                  </li>
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
-                      >adresse:</span
+                      >Adresse:</span
                     >
                     {{ profileDetail?.adresse }}
                   </li>
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
-                      >sexe:</span
+                      >Sexe:</span
                     >
                     {{ profileDetail?.sexe }}
                   </li>
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
-                      >date_naissance:</span
+                      >Date naissance:</span
                     >
                     {{ profileDetail?.date_naissance | date }}
                   </li>
                   <li class="mb-2 mb-xl-3 display-28">
                     <span class="display-26 text-secondary me-2 font-weight-600"
-                      >cin:{{ profileDetail?.cin }}</span
+                      >Cin:{{ profileDetail?.cin }}</span
                     >
                     {{ profileDetail?.cin }}
                   </li>
@@ -65,16 +60,22 @@
                   </li>
                 </ul>
               </div>
+              <div class="col-2 "  style="width:15%;height: 18%;">
+                <img style="width: 200%;height: 250%;"
+                  src="https://cdn-icons-png.flaticon.com/128/15735/15735364.png"
+                  alt="..."
+                />
+              </div>
             </div>
-            <div class="flex row justify-content-between">
-              <button
+            <div class="flex row " style="margin-left: 10%; ">
+             <!-- <button class="btn" id="modprofil"
                 pButton
                 pRipple
                 type="button"
                 label="Modifier profil"
                 class="p-button-outlined p-button-info col-3"
-              ></button>
-              <button
+              ></button>-->
+              <button class="btn " id="modpass"
                 pButton
                 pRipple
                 type="button"
@@ -102,7 +103,7 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5">
-                          modifier votre mot de passe ?
+                          <i class="bi bi-key"></i> modifier votre mot de passe 
                         </h1>
                         <button
                           type="button"
@@ -148,20 +149,21 @@
                           </div>
                         </form>
                       </div>
-                      <div class="modal-footer">
+                      <div class="modal-footer" style="align-items: center;">
                         <button
+                        
                           type="button"
-                          class="btn btn-secondary"
+                          class="btn bb"
                           data-bs-dismiss="modal"
                         >
                           Retour
                         </button>
                         <button
                           type="submit"
-                          class="btn btn-primary"
+                          class="btn bb"
                           formmethod="post"
                         >
-                          modifier
+                        <i class="bi bi-check2-all"></i> modifier
                         </button>
                       </div>
                     </div>
@@ -176,15 +178,28 @@
   </div>
 </section>
 
-<div class="card">
+
+
+
+<!--Sep-->
+<hr style="color: black;z-index:100">
+<div class="row" style="margin-top: 2%;">
+  <div class="col-2" style="width: 40px; height: 50px;margin-left:6%">
+<img style="margin-top: 70px;" src="https://cdn-icons-png.freepik.com/512/166/166256.png" alt="">
+</div>
+<div class="card  " style="margin-top: 10px; margin-left:40%; padding-left:10% ;width:55vw;
+background-color:transparent">
+ 
   <span class="text-900 text-xl font-bold mb-4 block"
     >Modifier votre profile
   </span>
-  <div class="grid">
-    <div class="col-12 lg:col-10">
+  <div class="card2" style="width:130%">
+
+    <div class="col-12 ">
+      
       <form
         [formGroup]="profileForm"
-        class="account-page-left shadow-sm bg-white h-100"
+        class=" h-100" style="margin:5%"
       >
         <div class="grid formgrid p-fluid">
           <div class="field mb-4 col-12 md:col-4">
@@ -279,11 +294,13 @@
           </div>
           <div class="field mb-4 col-12 md:col-6">
             <label for="state" class="font-medium text-900">cv</label>
-            <input id="state" type="file" pInputText formControlName="cv" />
+            <input id="state" type="file" pInputText formControlName="cv"  />
           </div>
 
-          <div class="col-12">
+          <div class="col-12" >
             <button
+            id="modprofil"
+            style="margin-left: 30%;"
               pButton
               pRipple
               label="save profile"
@@ -295,4 +312,5 @@
       </form>
     </div>
   </div>
+</div>
 </div>

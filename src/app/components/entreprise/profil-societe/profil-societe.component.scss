@@ -1,0 +1,54 @@
+.card {
+    border-radius: 20px;
+    border:0px;
+    width: 50vw;
+    height: 80vh;
+    justify-content: space-between;
+    box-shadow: 0px 0px 20px 1px rgba(59, 94, 191, 0.25);
+    background-image: linear-gradient(to bottom right, rgb(163, 194, 227), rgb(189, 190, 199),rgb(83, 83, 143));
+}
+.b{
+    background-color: transparent;
+    border:1.5px solid rgb(66, 66, 67);
+ 
+    justify-content: center;
+    border-radius: 30px;
+    
+    display: flex;
+    flex-direction: row;
+    
+
+   
+}
+label{
+    text-transform: capitalize;
+    margin-top: 7px;
+    
+}
+.btn{
+    color: rgb(59, 61, 65);
+    padding-left:10%;
+    max-width: 50vw;
+    width:50%
+}
+.modal{
+     background-image: linear-gradient(to bottom right, rgb(163, 194, 227), rgb(189, 190, 199),rgb(83, 83, 143));
+
+}
+.modal-content{
+    background-image: linear-gradient(to bottom right, rgb(117, 153, 192), rgb(143, 144, 155),rgb(65, 65, 118));
+    justify-content: center;
+    align-items: center;
+}
+.bb{
+    background-color: transparent;
+    color:white;
+    border:1.5px solid black ;
+    align-items: center;
+    width: 100%;
+}
+
+#mod{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(88, 90, 91);
+}

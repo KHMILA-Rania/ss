@@ -1,4 +1,8 @@
-<body class="p-3 m-0 border-0 bd-example m-0 border-0 card" style="margin-top:50px">
+<body class=" m-0 border-0 bd-example m-0 border-0   
+content col-12 col-md-4 col-sm-10 m-5  ml-6 p-5" style="
+">
+<div class="row">
+<div class="col-4 card " style="margin-left: 3%; margin-top:20px">
     <form class="row g-3" [formGroup] = "profileForm" method="post">
    <div class="row"> 
     <div class="col-md-4">
@@ -72,14 +76,14 @@
         <textarea class="form-control" rows="3" formControlName="description"></textarea>
       </div>      
     </div> 
-    <div>
-        <button type="submit" class="btn btn-primary" (click)="enregistrer()" formmethod="post">Enregistrer</button>
+    <div class="b">
+        <button type="submit" class="btn " (click)="enregistrer()" formmethod="post"><i class="bi bi-check2-all"></i>Enregistrer</button>
     </div>
 
 
 
-    <div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">modifier le mot de passe</button>
+    <div class="b">
+        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="bi bi-key"></i> modifier le mot de passe</button>
         
 
         <!-- Modal -->
@@ -87,7 +91,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5">modifier votre mot  de passe ?</h1>
+                <h1 class="modal-title fs-5" id="mod">modifier votre mot  de passe <i class="bi bi-file-earmark-lock2"></i></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -107,12 +111,18 @@
                   </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
-                <button type="submit" class="btn btn-primary" (click)="modifierPassword()" formmethod="post">modifier</button>
+                <button type="button" class="btn bb" data-bs-dismiss="modal">Retour</button>
+                <button type="submit" class="btn bb" (click)="modifierPassword()" formmethod="post">modifier</button>
               </div>
             </div>
           </div>
         </div>   
       </div>  
   </form>
+</div>
+<div class="col-4 col-md-4 col-sm5" style="margin-left:8%;margin-top :20px;">
+  <img class="img-fluid   rounded" style="width:100%;" src="https://cdn-icons-png.flaticon.com/512/1842/1842127.png">
+</div>
+</div>
+
 </body>

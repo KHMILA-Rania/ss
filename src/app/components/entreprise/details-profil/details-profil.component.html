@@ -1,1 +1,66 @@
-<p>details-profil works!</p>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+<div class="">
+<div class="col s6">
+    <h1 class="text-center m-5" >Details de la societe</h1>
+  </div>
+    <div class="data row  d-flex flex-row flex-wrap p-5 m-5 ">
+       <div class="col-1"></div>
+
+        <div class="col-3 col-md-6 col-sm8" style="width: 30%;height:100%">
+            <img class="img-fluid  m-5 p-5 rounded" style="width:100%;" src="https://cdn-icons-png.flaticon.com/512/7713/7713554.png">
+        </div>
+
+       
+
+        <div class="content card col-6 col-md-4 col-sm-10 m-5  ml-6 p-5">
+        <div class="name" *ngIf="objdata">
+           
+            <p class="data-content card-header">
+                <i class="bi bi-person"></i> Name :  
+               <strong> {{objdata?.name}} </strong>
+                
+            </p>
+          
+            <p class="card-body">
+                <i class="bi bi-envelope"></i> email  :  <br> 
+                
+                  {{objdata?.email}}
+                 
+             </p>
+
+           
+        
+           
+        
+          
+            
+            <p class="card-body">
+                <i class="bi bi-telephone"></i> telephone :
+                 {{objdata?.telephone}}
+                
+            </p>
+
+          
+         
+            <div class="links   col-6    w-auto  mb-3 text-center justify-content-center"> 
+                
+                <a class="btn  rounded mt-5" style="background-color:#588dd2;color:white;
+                width:50%;border-radius:40px" (click)="goTo(objdata._id)">Edit</a>
+ 
+            </div>  </div>
+            <div class="col-1 col-md-0 col-sm-0"></div> 
+        
+        </div>
+
+      
+
+
+    
+
+    </div>
+  
+</div>
+

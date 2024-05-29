@@ -65,7 +65,7 @@ export class SideBarComponent implements OnInit {
         label: 'Profil',
         icon: 'pi pi-fw pi-id-card',
         command: () => {
-          this.router.navigateByUrl('/dashboard/company/profil-societe');
+          this.router.navigateByUrl('/dashboard/company/details-profil');
         },
       },
     ];
