@@ -21,7 +21,7 @@
             <label class="form-label">Nom</label>
             <input type="text" class="form-control form-control" formControlName="nom" />
             <div *ngIf="addForm.get('nom')?.touched && addForm.get('nom')?.hasError('required')" class="text-danger">
-              Ce champ est requis
+              <small> Ce champ est requis</small>
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@
             <label class="form-label">Email</label>
             <input type="email" class="form-control form-control" formControlName="email" />
             <div *ngIf="addForm.get('email')?.touched && addForm.get('email')?.hasError('required')" class="text-danger">
-              Ce champ est requis
+              <small> Ce champ est requis</small>
             </div>
           </div>
         </div>
@@ -43,11 +43,18 @@
             <option value="societe">societe</option>
             <option value="admin">admin</option>
           </select>
+          <div *ngIf="addForm.get('role')?.touched && addForm.get('role')?.hasError('required')" class="text-danger">
+            <small> Ce champ est requis</small>
+          </div>
         </div>
         <div class="col-md-6">
           <div class="form-outline">
             <label class="form-label">Téléphone</label>
             <input type="tel" class="form-control form-control" formControlName="telephone" />
+            <div *ngIf="addForm.get('email')?.touched && addForm.get('email')?.hasError('required')" class="text-danger">
+              <small> Ce champ est requis</small>
+            </div>
+          
           </div>
         </div>
       </div>
@@ -57,7 +64,7 @@
             <label class="form-label">password</label>
             <input type="password" class="form-control form-control" formControlName="password" />
             <div *ngIf="addForm.get('password')?.touched && addForm.get('password')?.hasError('required')" class="text-danger">
-              Ce champ est requis
+              <small> Ce champ est requis</small>
             </div>
           </div>
         </div>
@@ -66,7 +73,7 @@
             <label class="form-label">confirm password</label>
             <input type="password" class="form-control form-control" formControlName="rep_password" />
             <div *ngIf="addForm.get('rep_password')?.touched && addForm.get('rep_password')?.hasError('required')" class="text-danger">
-              Ce champ est requis
+              <small> Ce champ est requis</small>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="row">
+<div class="container " style="margin-top: 10%; margin-left:10%">
+  <div class="row text-light">
 
-    <div class="card col-md-10" [ngClass]="{
+    <div class="card col-md-10 text-light" [ngClass]="{
       'disponible': data?.status == 'disponible',
       'indisponible': data?.status == 'indisponible'
     }">
@@ -10,22 +10,25 @@
         <div class=" col-12 row align-content-center justify-content-center">
           <h1 class="card-title col-10 text-center">{{ data?.titre }}</h1>
         </div>
-        <div class="row">
-          <p class="card-text col-6 ">{{ data?.societe?.nom }}</p>
-          <p class="date-fix"><small class="text-muted">Le {{data?.date |date }}</small></p>
+        <div class="row text-light">
+          <p class="card-text col-6 text-light">{{ data?.societe?.nom }}</p>
+          <p class="date-fix"><small class=" text-light">Le {{data?.date |date }}</small></p>
           <p class="card card-text description">{{ data?.description }}</p>
         </div>
         <div class="row col-12 align-items-end justify-content-end gap-2">
-          <small class="card card-text col-3  text-muted">
+          <small class="card card-text col-3  text-muted text-light">
             Date d'expiration: {{ data?.date_dexpiration | date }}
           </small>
-          <small class="card card-text col-3 text-muted">
+          <small class="card card-text col-3  text-muted">
             Nombre de candidats: {{ data?.number_candidats }}
           </small>
-          <small class="card col-2 text-500"> <b>Durée : {{ data?.duree }} mois</b></small>
+          <small class="card col-3 text-500">
+             <b>Durée : {{ data?.duree }} mois</b>
+          </small>
 
         </div>
-        <button type="button" class="btn btn-primary col-3" data-bs-toggle="modal"
+        <button type="button" class="btn col-3" style="background-color: transparent; border:1px solid white;
+        border-radius:40px;" data-bs-toggle="modal"
           data-bs-target="#staticBackdrop" [disabled]="data?.status=='indisponible'">Postuler</button>
 
 
