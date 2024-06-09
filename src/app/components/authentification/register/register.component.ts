@@ -20,8 +20,8 @@ export class RegisterComponent implements OnInit {
       email: new FormControl('', [Validators.required]),
       role: new FormControl(''),
       telephone: new FormControl('', [Validators.pattern('^[0-9]')]),
-      password: new FormControl(''),
-      rep_password: new FormControl(''),
+      password: new FormControl('',[Validators.required]),
+      rep_password: new FormControl('',[Validators.required]),
       user: new FormControl(this.idUser),
     });
   }
