@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forget-password',
@@ -17,12 +18,17 @@ export class ForgetPasswordComponent {
   forgotPassword() {
     this.sAuth.forgotPassword(this.email).subscribe(
       () => {
-        // this.router.navigateByUrl('/auth/resetPassword');
+         this.router.navigateByUrl('/auth/resetPassword');
+        
         this.message =
           'Nous vous avons envoyé un lien de réinitialisation de mot de passe';
-        alert(
-          'Nous vous avons envoyé un lien de réinitialisation de mot de passe'
-        );
+         
+       
+        swal.fire({
+          title: 'succes!',
+          text: 'Nous vous avons envoyé un lien de réinitialisation de mot de passe',
+          icon: 'success',
+        });
       },
       (error) => {
         console.error(
